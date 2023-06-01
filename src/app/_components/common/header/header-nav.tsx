@@ -1,11 +1,12 @@
-import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { FiUser } from "react-icons/fi";
+import { LogoutComponent } from "../../auth/logout";
 
 export async function HeaderNav() {
-  const { userId } = auth();
+  // const { userId } = auth();
 
-  return userId ? <AuthorizedNav userId={userId} /> : <NoAuthorizedNav />;
+  // return userId ? <AuthorizedNav userId={userId} /> : <NoAuthorizedNav />;
+  return <NoAuthorizedNav></NoAuthorizedNav>;
 }
 
 function AuthorizedNav({ userId }: { userId: string }) {
@@ -19,6 +20,14 @@ function AuthorizedNav({ userId }: { userId: string }) {
           </span>
         </Link>
       </li>
+      <li>
+        <Link href={`/users/${userId}`}>
+          <span className="flex items-center gap-2">
+            <FiUser fontSize={20} />
+            <LogoutComponent></LogoutComponent>
+          </span>
+        </Link>
+      </li>
     </ul>
   );
 }
@@ -29,9 +38,9 @@ function NoAuthorizedNav() {
       <li>
         <Link href="/auth/login">Login</Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/auth/signup">Signup</Link>
-      </li>
+      </li> */}
       <li>
         {/* <SignedOut>
           <SignInButton />

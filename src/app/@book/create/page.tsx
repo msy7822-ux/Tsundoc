@@ -1,4 +1,4 @@
-export function CreateBook() {
+export default function CreateBook() {
   return (
     <div>
       <div>create book</div>

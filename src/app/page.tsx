@@ -1,17 +1,16 @@
 import React from "react";
 import { CreateBookButton } from "./_components/book/create-button";
-import { getAllBooks } from "@/lib/supabase";
-import { auth } from "@clerk/nextjs";
+import { getAllBooks, getUsers } from "@/lib/supabase";
 
 export default async function Home() {
   const { data: books, error } = await getAllBooks();
-  const { userId } = auth();
+  const { data: users } = await getUsers();
 
-  // console.log(user);
+  console.log("users -> ", users);
 
   return (
     <main className="">
-      <CreateBookButton isDisplay={!!userId} />
+      <CreateBookButton isDisplay={true} />
       {books?.map((book, i) => {
         return (
           <div key={i}>

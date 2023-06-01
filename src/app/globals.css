@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .auth-button {
+    @apply rounded-[6px] px-6 py-2 text-base font-bold
+    border drop-shadow-lg hover:scale-95 hover:opacity-70
+    hover:transition-all bg-main text-white ;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
