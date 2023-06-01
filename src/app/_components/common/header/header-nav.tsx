@@ -1,16 +1,24 @@
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
+import { FiUser } from "react-icons/fi";
 
 export async function HeaderNav() {
   const { userId } = auth();
 
-  return userId ? <AuthorizedNav /> : <NoAuthorizedNav />;
+  return userId ? <AuthorizedNav userId={userId} /> : <NoAuthorizedNav />;
 }
 
-function AuthorizedNav() {
+function AuthorizedNav({ userId }: { userId: string }) {
   return (
     <ul className="flex items-center gap-3 text-main">
-      <li></li>
+      <li>
+        <Link href={`/users/${userId}`}>
+          <span className="flex items-center gap-2">
+            <FiUser fontSize={20} />
+            <span>mypage</span>
+          </span>
+        </Link>
+      </li>
     </ul>
   );
 }
