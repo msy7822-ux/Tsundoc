@@ -1,13 +1,26 @@
-import Image from "next/image";
 import React from "react";
-import { Inter } from "next/font/google";
+import { CreateBookButton } from "./_components/book/create-button";
+import { getAllBooks } from "@/lib/supabase";
+import { auth, currentUser } from "@clerk/nextjs";
 
-const inter = Inter({ subsets: ["latin"] });
+export default async function Home() {
+  const { data: books, error } = await getAllBooks();
+  const user = await currentUser().catch((e) => null);
 
-export default function Home() {
+  // console.log(user);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      a
+    <main className="">
+      <CreateBookButton></CreateBookButton>
+      {books?.map((book, i) => {
+        return (
+          <div key={i}>
+            {book.id}
+            {book.title}
+            {book.name}
+          </div>
+        );
+      })}
     </main>
   );
 }
