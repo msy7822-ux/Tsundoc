@@ -2,8 +2,14 @@
 
 import { useRouter } from "next/navigation";
 
-export function CreateBookButton() {
+type Props = {
+  isDisplay: boolean;
+};
+
+export function CreateBookButton({ isDisplay }: Props) {
   const router = useRouter();
+
+  if (!isDisplay) return null;
 
   return (
     <button

@@ -1,12 +1,21 @@
-import { SignInButton, SignedOut, auth, currentUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
 export async function HeaderNav() {
-  const { userId, user } = auth();
+  const { userId } = auth();
 
-  console.log("user id", userId);
-  console.log("user", user);
+  return userId ? <AuthorizedNav /> : <NoAuthorizedNav />;
+}
 
+function AuthorizedNav() {
+  return (
+    <ul className="flex items-center gap-3 text-main">
+      <li></li>
+    </ul>
+  );
+}
+
+function NoAuthorizedNav() {
   return (
     <ul className="flex items-center gap-3 text-main">
       <li>
