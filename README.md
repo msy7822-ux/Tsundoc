@@ -13,3 +13,10 @@ pnpm dev
 ```shell
 pnpm gen:type
 ```
+
+## 使用技術
+- Next.js (App Router)
+- Supbase
+- Clerk (Authentication)
+- Tailwindcss
+- Vercel
