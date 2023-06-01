@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "npx supabase gen types typescript --linked > src/types/schema.ts"
+    "gen:type": "npx supabase gen types typescript --linked > src/types/schema.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.19.0",
