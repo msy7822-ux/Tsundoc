@@ -27,14 +27,28 @@ export async function UserDetail() {
         </div>
       </div>
 
-      <div>
-        <div className="flex items-center gap-3">
-          認証方法:
-          <span className="flex items-center gap-2">
-            {convertProviderIcon(provider)} {provider}
-          </span>
+      <div className="w-full">
+        <div
+          className="
+          w-full border-b border-gray-300
+          text-gray-500 mb-3"
+        >
+          認証方法
         </div>
-        <div>email: {accountInfo?.emailAddress}</div>
+        <span className="flex items-center gap-2">
+          {convertProviderIcon(provider)} {provider}
+        </span>
+      </div>
+
+      <div className="w-full">
+        <div
+          className="
+          w-full border-b border-gray-300
+          text-gray-500 mb-3"
+        >
+          メールアドレス
+        </div>
+        {accountInfo?.emailAddress}
       </div>
 
       <div className="mx-auto">
