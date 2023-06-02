@@ -4,6 +4,9 @@ const nextConfig = {
     appDir: true,
     serverActions: true,
   },
+  images: {
+    domains: ["images.clerk.dev"],
+  },
 };
 
 module.exports = nextConfig;

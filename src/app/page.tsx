@@ -1,17 +1,14 @@
 import React from "react";
 import { CreateBookButton } from "./_components/book/create-button";
-import { getAllBooks, getUsers } from "@/lib/supabase";
+import { currentUser } from "@clerk/nextjs";
 
 export default async function Home() {
-  const { data: books, error } = await getAllBooks();
-  const { data: users } = await getUsers();
-
-  console.log("users -> ", users);
+  const user = await currentUser();
 
   return (
     <main className="">
-      <CreateBookButton isDisplay={true} />
-      {books?.map((book, i) => {
+      <CreateBookButton isDisplay={!!user} />
+      {/* {books?.map((book, i) => {
         return (
           <div key={i}>
             {book.id}
@@ -19,7 +16,7 @@ export default async function Home() {
             {book.name}
           </div>
         );
-      })}
+      })} */}
     </main>
   );
 }

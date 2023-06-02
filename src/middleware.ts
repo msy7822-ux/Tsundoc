@@ -1,7 +1,5 @@
-// import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
-// import type { Database } from "./types/schema";
-import { NextResponse, NextRequest } from "next/server";
-import { generateSupabaseClient } from "./lib/supabase";
+import { authMiddleware } from "@clerk/nextjs";
+import { NextResponse } from "next/server";
 
 // middlewareでアクセス制限をかける
 const ACCESSABLE_LIST = [
@@ -11,9 +9,31 @@ const ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/`,
 ];
 
-export async function middleware(_req: NextRequest) {
-  const res = NextResponse.next();
-  const client = await generateSupabaseClient();
-  await client.auth.getSession();
-  return res;
-}
+export default authMiddleware({
+  afterAuth(auth, req, _evt) {
+    if (ACCESSABLE_LIST.includes(req.url)) return;
+
+    const signInUrl = new URL("/auth/login", req.url);
+
+    if (!auth.sessionId && !auth.userId)
+      return NextResponse.redirect(signInUrl);
+  },
+
+  // afterAuth(auth, req, _evt) {
+  //   // handle users who aren't authenticated
+  //   if (!auth.userId && !auth.isPublicRoute) {
+  //     const signInUrl = new URL("/login", req.url);
+  //     signInUrl.searchParams.set("redirect_url", req.url);
+  //     return NextResponse.redirect(signInUrl);
+  //   }
+  //   // rededirect them to organization selection page
+  //   if (!auth.orgId && req.nextUrl.pathname !== "/org-selection") {
+  //     const orgSelection = new URL("/", req.url);
+  //     return NextResponse.redirect(orgSelection);
+  //   }
+  // },
+});
+
+export const config = {
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+};

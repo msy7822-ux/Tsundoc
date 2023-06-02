@@ -38,7 +38,7 @@ export interface Database {
         Row: {
           created_at: string
           id: string
-          is_finish: boolean
+          is_finished: boolean
           register_id: string
           title: string
           updated_at: string | null
@@ -46,7 +46,7 @@ export interface Database {
         Insert: {
           created_at?: string
           id: string
-          is_finish?: boolean
+          is_finished?: boolean
           register_id: string
           title: string
           updated_at?: string | null
@@ -54,36 +54,10 @@ export interface Database {
         Update: {
           created_at?: string
           id?: string
-          is_finish?: boolean
+          is_finished?: boolean
           register_id?: string
           title?: string
           updated_at?: string | null
-        }
-      }
-      users: {
-        Row: {
-          created_at: string
-          email: string
-          icon: string | null
-          id: string
-          name: string
-          update_at: string | null
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          icon?: string | null
-          id: string
-          name: string
-          update_at?: string | null
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          icon?: string | null
-          id?: string
-          name?: string
-          update_at?: string | null
         }
       }
     }

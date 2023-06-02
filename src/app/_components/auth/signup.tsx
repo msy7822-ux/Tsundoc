@@ -1,25 +1,35 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { signUp } from "@/lib/supabase";
+import { useSignUp } from "@clerk/nextjs";
+import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
 
 export function SignupComponent() {
   const router = useRouter();
+  const { signUp } = useSignUp();
+  const notify = () => toast("新規登録に失敗しました。");
 
   const handleSignup = async () => {
-    // await signUp();
-    // if (signUp) {
-    //   await signUp.authenticateWithRedirect({
-    //     strategy: strategy,
-    //     redirectUrl: "/sso-callback",
-    //     redirectUrlComplete: "/",
-    //   });
-    // }
+    try {
+      if (signUp) {
+        await signUp.authenticateWithRedirect({
+          strategy: "oauth_github",
+          redirectUrl: "/sso-callback",
+          redirectUrlComplete: "/",
+        });
+      }
+
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+      notify();
+    }
   };
 
   return (
     <div className="flex flex-col gap-5">
+      <ToastContainer></ToastContainer>
       <div className="w-full flex justify-center gap-4">
         <button
           type="button"

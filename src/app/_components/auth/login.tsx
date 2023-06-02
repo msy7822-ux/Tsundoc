@@ -1,18 +1,23 @@
 "use client";
 
+import { useSignIn } from "@clerk/nextjs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function LoginComponent() {
-  // const { signIn } = useSignIn();
+  const { signIn } = useSignIn();
+  const router = useRouter();
 
   const handleLogin = async () => {
-    // if (signIn) {
-    //   await signIn.authenticateWithRedirect({
-    //     strategy: strategy,
-    //     redirectUrl: "/sso-callback",
-    //     redirectUrlComplete: "/",
-    //   });
-    // }
+    if (signIn) {
+      await signIn.authenticateWithRedirect({
+        strategy: "oauth_github",
+        redirectUrl: "/sso-callback",
+        redirectUrlComplete: "/",
+      });
+    }
+
+    router.refresh();
   };
 
   return (

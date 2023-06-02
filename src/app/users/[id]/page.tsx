@@ -1,7 +1,10 @@
-export default function UserDetailPage() {
+import { UserDetail } from "@/app/_components/user/detail";
+
+export default async function UserDetailPage() {
   return (
     <div>
-      <p>user detail page</p>
+      {/* @ts-expect-error Server Component */}
+      <UserDetail></UserDetail>
     </div>
   );
 }

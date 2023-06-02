@@ -12,9 +12,9 @@ export function Modal({ children }: { children: React.ReactNode }) {
     <div className="relative">
       <div
         className="
-          h-screen w-screen _bg-black/80
+          h-screen w-screen bg-black/80
           fixed flex items-center justify-center top-0
-          left-0 z-40
+          left-0
         "
       >
         <div className="w-full">{children}</div>
