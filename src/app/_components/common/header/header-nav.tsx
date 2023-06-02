@@ -1,42 +1,23 @@
 import Link from "next/link";
-import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
+import { HeaderIcon } from "./header-icon";
+import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 
 export async function HeaderNav() {
   const user = await currentUser();
 
-  return !!user ? (
-    <AuthorizedNav userIcon={user.profileImageUrl ?? ""} userId={user.id} />
+  return !!user || user === "undefined" ? (
+    <AuthorizedNav user={user} />
   ) : (
     <NoAuthorizedNav />
   );
 }
 
-function AuthorizedNav({
-  userIcon,
-  userId,
-}: {
-  userIcon: string;
-  userId: string;
-}) {
+function AuthorizedNav({ user }: { user: User }) {
   return (
     <ul className="flex items-center gap-3 text-main">
       <li>
-        <Link href={`/users/${userId}`}>
-          <Image
-            src={userIcon}
-            alt=""
-            className="inline-block border border-main rounded-[50%]"
-            width={40}
-            height={40}
-          />
-        </Link>
-        {/* <Link href={`/users/${userId}`}>
-          <span className="flex items-center gap-2">
-            <FiUser fontSize={20} />
-            <span>mypage</span>
-          </span>
-        </Link> */}
+        <HeaderIcon user={user}></HeaderIcon>
       </li>
     </ul>
   );
@@ -47,14 +28,6 @@ function NoAuthorizedNav() {
     <ul className="flex items-center gap-3 text-main">
       <li>
         <Link href="/auth/login">Login</Link>
-      </li>
-      {/* <li>
-        <Link href="/auth/signup">Signup</Link>
-      </li> */}
-      <li>
-        {/* <SignedOut>
-          <SignInButton />
-        </SignedOut> */}
       </li>
     </ul>
   );

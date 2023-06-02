@@ -1,13 +1,14 @@
 import { CreateForm } from "@/app/_components/book/create-form";
-import { Modal } from "@/app/_components/common/modal/modal";
-import { ModalInner } from "@/app/_components/common/modal/modal-inner";
+import { currentUser } from "@clerk/nextjs";
 
-export default function Book() {
+export default async function Book() {
+  const user = await currentUser();
+
   return (
-    <Modal>
-      <ModalInner>
-        <CreateForm></CreateForm>
-      </ModalInner>
-    </Modal>
+    <div>
+      <div>
+        <CreateForm userId={user?.id ?? ""}></CreateForm>
+      </div>
+    </div>
   );
 }

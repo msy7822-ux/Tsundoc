@@ -18,20 +18,6 @@ export default authMiddleware({
     if (!auth.sessionId && !auth.userId)
       return NextResponse.redirect(signInUrl);
   },
-
-  // afterAuth(auth, req, _evt) {
-  //   // handle users who aren't authenticated
-  //   if (!auth.userId && !auth.isPublicRoute) {
-  //     const signInUrl = new URL("/login", req.url);
-  //     signInUrl.searchParams.set("redirect_url", req.url);
-  //     return NextResponse.redirect(signInUrl);
-  //   }
-  //   // rededirect them to organization selection page
-  //   if (!auth.orgId && req.nextUrl.pathname !== "/org-selection") {
-  //     const orgSelection = new URL("/", req.url);
-  //     return NextResponse.redirect(orgSelection);
-  //   }
-  // },
 });
 
 export const config = {

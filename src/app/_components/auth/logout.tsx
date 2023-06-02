@@ -3,7 +3,7 @@
 import { useClerk } from "@clerk/nextjs";
 import { FiLogOut } from "react-icons/fi";
 
-export function LogoutComponent() {
+export function LogoutButtonComponent() {
   const { signOut } = useClerk();
 
   return (

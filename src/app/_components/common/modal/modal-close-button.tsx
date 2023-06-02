@@ -1,15 +1,18 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { IoMdClose } from "react-icons/io";
+
 export function ModalCloseButton() {
+  const router = useRouter();
   return (
     <button
-      className="border rounded-md py-2 px-8"
+      className="py-2 px-8 absolute top-5 right-0"
       onClick={() => {
-        window.location.reload();
-        console.log("router.forward()");
+        router.back();
       }}
     >
-      詳しくみる
+      <IoMdClose fontSize={30}></IoMdClose>
     </button>
   );
 }
