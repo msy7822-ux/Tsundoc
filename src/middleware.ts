@@ -7,6 +7,7 @@ const NOT_AUTHUSER_ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
   `${process.env.NEXT_PUBLIC_URL}/intro`,
   `${process.env.NEXT_PUBLIC_URL}/`,
+  `${process.env.NEXT_PUBLIC_URL}/favicon.ico`,
 ];
 
 const AUTHUSER_NOT_ACCESSIBLE = [
@@ -19,8 +20,6 @@ export default authMiddleware({
   afterAuth(auth, req, _evt) {
     // signin済みのユーザーはauthページに行けない
 
-    console.log(req.url);
-    console.log(NOT_AUTHUSER_ACCESSABLE_LIST);
     if (NOT_AUTHUSER_ACCESSABLE_LIST.includes(req.url)) return;
 
     const signInUrl = new URL("/auth/login", req.url);
