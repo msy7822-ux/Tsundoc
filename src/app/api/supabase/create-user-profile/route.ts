@@ -3,7 +3,7 @@
 
 export async function POST(request: Request) {
   console.log(request.headers);
-  const data = await request.json();
+  const { data } = await request.json();
   console.log(data.userId);
   console.log(data["userId"]);
 
