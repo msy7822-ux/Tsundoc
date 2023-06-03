@@ -17,6 +17,10 @@ export default async function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <ClerkProvider>
+        <head>
+          {/* app dirだと書き方ちょっと違うかも */}
+          <link rel="manifest" href="/manifest.json" />
+        </head>
         <body>
           <ToastContainer />
           <Header></Header>
