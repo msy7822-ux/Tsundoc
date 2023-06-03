@@ -1,7 +1,7 @@
 import { Modal } from "@/app/_components/common/modal/modal";
 import { ModalInner } from "@/app/_components/common/modal/modal-inner";
 import { ModalCloseButton } from "@/app/_components/common/modal/modal-close-button";
-import { CreateForm } from "@/app/_components/book/create-form";
+import { CreateForm } from "@/app/_components/template/book/create-form";
 import { currentUser } from "@clerk/nextjs";
 
 export default async function BookCreate() {

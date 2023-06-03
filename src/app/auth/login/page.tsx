@@ -1,4 +1,4 @@
-import { LoginComponent } from "@/app/_components/auth/login";
+import { LoginComponent } from "@/app/_components/template/auth/login";
 
 export default async function Login() {
   return (

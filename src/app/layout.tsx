@@ -20,9 +20,7 @@ export default async function RootLayout({
         <body>
           <ToastContainer />
           <Header></Header>
-          <div className="p-3 sm:p-5 sm:px-10 max-w-[800px] mx-auto w-full">
-            {children}
-          </div>
+          <div className="p-3 sm:p-5 sm:px-10 w-full">{children}</div>
         </body>
       </ClerkProvider>
     </html>

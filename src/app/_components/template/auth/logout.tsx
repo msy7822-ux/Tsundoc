@@ -11,8 +11,8 @@ export function LogoutButtonComponent() {
       <button
         type="button"
         className="
-          text-main flex items-center gap-2 border
-          shadow-sm py-2 px-8 rounded-md"
+          text-main flex items-center justify-center gap-2
+          border shadow-sm py-2 px-8 rounded-md w-full"
         onClick={() => {
           signOut();
         }}

@@ -2,16 +2,24 @@ import { authMiddleware } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 // middlewareでアクセス制限をかける
-const ACCESSABLE_LIST = [
+const NOT_AUTHUSER_ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/auth/login`,
   `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
   `${process.env.NEXT_PUBLIC_URL}/intro`,
   `${process.env.NEXT_PUBLIC_URL}/`,
 ];
 
+const AUTHUSER_NOT_ACCESSIBLE = [
+  `${process.env.NEXT_PUBLIC_URL}/auth/login`,
+  `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
+  `${process.env.NEXT_PUBLIC_URL}/intro`,
+];
+
 export default authMiddleware({
   afterAuth(auth, req, _evt) {
-    if (ACCESSABLE_LIST.includes(req.url)) return;
+    // signin済みのユーザーはauthページに行けない
+
+    if (NOT_AUTHUSER_ACCESSABLE_LIST.includes(req.url)) return;
 
     const signInUrl = new URL("/auth/login", req.url);
 

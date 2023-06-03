@@ -1,4 +1,4 @@
-import { CreateForm } from "@/app/_components/book/create-form";
+import { CreateForm } from "@/app/_components/template/book/create-form";
 import { currentUser } from "@clerk/nextjs";
 
 export default async function Book() {

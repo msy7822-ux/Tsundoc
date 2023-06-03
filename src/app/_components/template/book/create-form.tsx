@@ -1,7 +1,7 @@
 "use client";
 
 import { createBook } from "@/actions/book";
-import { EmojiPickerComponent } from "@/app/_components/emoji-picker";
+import { EmojiPickerComponent } from "@/app/_components/common/emoji-picker";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";

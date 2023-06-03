@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateBookButton } from "./_components/book/create-button";
+import { CreateBookButton } from "./_components/template/book/create-button";
 import { currentUser } from "@clerk/nextjs";
 
 export default async function Home() {

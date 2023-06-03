@@ -3,6 +3,7 @@ import Image from "next/image";
 import { LogoutButtonComponent } from "../auth/logout";
 import { currentUser } from "@clerk/nextjs";
 import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
+import { DetailButton } from "./detail-button";
 
 export async function UserDetail() {
   const user = await currentUser();
@@ -51,8 +52,9 @@ export async function UserDetail() {
         {accountInfo?.emailAddress}
       </div>
 
-      <div className="mx-auto">
-        <LogoutButtonComponent></LogoutButtonComponent>
+      <div className="mx-auto flex items-center gap-5">
+        <DetailButton></DetailButton>
+        {/* <LogoutButtonComponent></LogoutButtonComponent> */}
       </div>
     </div>
   );
