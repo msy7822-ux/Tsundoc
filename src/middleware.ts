@@ -20,6 +20,7 @@ export default authMiddleware({
     // signin済みのユーザーはauthページに行けない
 
     console.log(req.url);
+    console.log(NOT_AUTHUSER_ACCESSABLE_LIST);
     if (NOT_AUTHUSER_ACCESSABLE_LIST.includes(req.url)) return;
 
     const signInUrl = new URL("/auth/login", req.url);
