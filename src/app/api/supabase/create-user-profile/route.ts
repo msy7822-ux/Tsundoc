@@ -3,8 +3,9 @@
 
 export async function POST(request: Request) {
   console.log(request.headers);
-  console.log(await request.json());
+  const data = await request.json();
+  console.log(data.userId);
+  console.log(data["userId"]);
 
-  // console.log("GET userId", userId);
   return new Response(`created user id}`);
 }
