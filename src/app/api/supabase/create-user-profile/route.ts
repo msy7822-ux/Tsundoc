@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 
-export async function GET(_request: Request) {
+export async function POST(_request: Request) {
   const { userId } = auth();
 
   console.log("GET userId", userId);
