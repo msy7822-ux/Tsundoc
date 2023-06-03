@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 // middlewareでアクセス制限をかける
 const NOT_AUTHUSER_ACCESSABLE_LIST = [
-  `${process.env.NEXT_PUBLIC_URL}/api/supabase`,
+  `${process.env.NEXT_PUBLIC_URL}/api/supabase/create-user-profile`,
   `${process.env.NEXT_PUBLIC_URL}/auth/login`,
   `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
   `${process.env.NEXT_PUBLIC_URL}/intro`,
