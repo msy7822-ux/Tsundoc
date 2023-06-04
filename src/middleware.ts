@@ -9,6 +9,7 @@ const NOT_AUTHUSER_ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/intro`,
   `${process.env.NEXT_PUBLIC_URL}/`,
   `${process.env.NEXT_PUBLIC_URL}/favicon.ico`,
+  `${process.env.NEXT_PUBLIC_URL}/icon`,
 ];
 
 export default authMiddleware({
