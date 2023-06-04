@@ -6,25 +6,25 @@
   "start_url": "/",
   "name": "TsunDoc",
   "short_name": "TsunDoc",
-  "description": "This is a demo to create PWA with next",
+  "description": "後で読みたい記事を積読できるサービス",
   "icons": [
     {
-      "src": "/books-purple.svg",
+      "src": "/app-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/books-purple.svg",
+      "src": "/app-icon.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/books-purple.svg",
+      "src": "/app-icon.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "/books-purple.svg",
+      "src": "/app-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
