@@ -5,8 +5,8 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
-  title: "Yondoc",
-  description: "積読をせずに完読するのを優しくサポートするサービスです。",
+  title: "TusnDoc",
+  description: "「後で読もう」と思った記事を積読できるサービス",
 };
 
 export default async function RootLayout({
