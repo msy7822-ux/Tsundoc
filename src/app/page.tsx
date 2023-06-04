@@ -10,8 +10,6 @@ export const metadata = {
 export default async function Home() {
   const user = await currentUser();
 
-  console.log("user", user);
-
   return (
     <main className="">
       <CreateBookButton isDisplay={!!user} />
