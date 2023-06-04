@@ -8,6 +8,10 @@
   display: none;
 }
 
+.cl-navbarMobileMenuButton {
+  display: none;
+}
+
 .cl-profileSection__activeDevices {
   display: none;
 }
