@@ -8,6 +8,9 @@ const NOT_AUTHUSER_ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
   `${process.env.NEXT_PUBLIC_URL}/intro`,
   `${process.env.NEXT_PUBLIC_URL}/`,
+];
+
+const META_ROUTES_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/favicon.ico`,
   `${process.env.NEXT_PUBLIC_URL}/icon`,
 ];
@@ -17,6 +20,14 @@ export default authMiddleware({
     // signin済みのユーザーはauthページに行けない
 
     if (NOT_AUTHUSER_ACCESSABLE_LIST.includes(req.url)) return;
+
+    if (
+      META_ROUTES_LIST.some((safe) => {
+        const regex = new RegExp(safe);
+        return regex.test(req.url);
+      })
+    )
+      return;
 
     const signInUrl = new URL("/auth/login", req.url);
 
