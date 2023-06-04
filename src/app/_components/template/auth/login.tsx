@@ -2,11 +2,11 @@
 
 import { useSignIn } from "@clerk/nextjs";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export function LoginComponent() {
   const { signIn } = useSignIn();
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleLogin = async () => {
     if (signIn) {
@@ -16,8 +16,6 @@ export function LoginComponent() {
         redirectUrlComplete: "/",
       });
     }
-
-    router.refresh();
   };
 
   return (

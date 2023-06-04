@@ -1,12 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { useSignUp } from "@clerk/nextjs";
 import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
 
 export function SignupComponent() {
-  const router = useRouter();
+  // const router = useRouter();
   const { signUp } = useSignUp();
   const notify = () => toast("新規登録に失敗しました。");
 
@@ -19,8 +19,6 @@ export function SignupComponent() {
           redirectUrlComplete: "/",
         });
       }
-
-      router.refresh();
     } catch (error) {
       console.error(error);
       notify();
