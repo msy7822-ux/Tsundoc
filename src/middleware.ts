@@ -4,11 +4,11 @@ import { NextResponse } from "next/server";
 // middlewareでアクセス制限をかける
 const NOT_AUTHUSER_ACCESSABLE_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/api/supabase/create-user-profile`,
-  `${process.env.NEXT_PUBLIC_URL}/auth/login`,
-  `${process.env.NEXT_PUBLIC_URL}/auth/signup`,
   `${process.env.NEXT_PUBLIC_URL}/intro`,
   `${process.env.NEXT_PUBLIC_URL}/`,
 ];
+
+const AUTH_PAGE = `${process.env.NEXT_PUBLIC_URL}/auth`;
 
 const META_ROUTES_LIST = [
   `${process.env.NEXT_PUBLIC_URL}/favicon.ico`,
@@ -17,12 +17,10 @@ const META_ROUTES_LIST = [
 
 export default authMiddleware({
   afterAuth(auth, req, _evt) {
-    // signin済みのユーザーはauthページに行けない
-
     if (NOT_AUTHUSER_ACCESSABLE_LIST.includes(req.url)) return;
 
     if (
-      META_ROUTES_LIST.some((safe) => {
+      [...META_ROUTES_LIST, AUTH_PAGE].some((safe) => {
         const regex = new RegExp(safe);
         return regex.test(req.url);
       })
