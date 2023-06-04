@@ -1,8 +1,6 @@
 import { Header } from "./_components/common/header/header";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ToastContainer } from "react-toastify";
 import "./globals.css";
-import "react-toastify/dist/ReactToastify.css";
 
 export default async function RootLayout({
   children,
@@ -17,7 +15,6 @@ export default async function RootLayout({
           <link rel="manifest" href="/manifest.json" />
         </head>
         <body>
-          <ToastContainer />
           <Header></Header>
           <div className="p-3 sm:p-5 sm:px-10 w-full">{children}</div>
         </body>
