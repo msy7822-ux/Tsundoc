@@ -4,11 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
-export const metadata = {
-  title: "TusnDoc",
-  description: "「後で読もう」と思った記事を積読できるサービス",
-};
-
 export default async function RootLayout({
   children,
 }: {
