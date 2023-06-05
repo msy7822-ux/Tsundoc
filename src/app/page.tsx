@@ -1,6 +1,9 @@
 import React from "react";
-import { CreateBookButton } from "./_components/template/book/create-button";
 import { currentUser } from "@clerk/nextjs";
+import { CreateArticle } from "./_components/article/create-article";
+import { generateSupabaseClient } from "@/lib/supabase";
+import { ArticlesList } from "./_components/article/template/articles-list";
+import { fetchTitleInfo } from "@/lib/ext-metadata";
 
 export const metadata = {
   title: "TusnDoc",
@@ -9,19 +12,29 @@ export const metadata = {
 
 export default async function Home() {
   const user = await currentUser();
+  const supabase = await generateSupabaseClient();
+  const { data, error } = await supabase
+    .from("documents")
+    .select()
+    .eq("register_id", user?.id);
+
+  if (error) throw new Error(error.message);
+
+  console.log(
+    await fetchTitleInfo("https://yokinist.me/supabase-upload-image")
+  );
+
+  const userArticles = data?.map((article) => {
+    return {
+      url: article.url,
+      thumbnail: article.thumbnail,
+    };
+  });
 
   return (
     <main className="">
-      <CreateBookButton isDisplay={!!user} />
-      {/* {books?.map((book, i) => {
-        return (
-          <div key={i}>
-            {book.id}
-            {book.title}
-            {book.name}
-          </div>
-        );
-      })} */}
+      <CreateArticle></CreateArticle>
+      <ArticlesList userArticles={userArticles}></ArticlesList>
     </main>
   );
 }

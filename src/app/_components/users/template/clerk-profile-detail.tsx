@@ -2,7 +2,7 @@
 
 import { UserProfile } from "@clerk/nextjs";
 import { useLayoutEffect, useState } from "react";
-import { LogoutButtonComponent } from "../auth/logout";
+import { LogoutButtonComponent } from "../../auth/logout";
 
 type UserProfile = {
   emailAddress: string;

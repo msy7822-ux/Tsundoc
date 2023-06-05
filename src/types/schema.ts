@@ -34,30 +34,27 @@ export interface Database {
   }
   public: {
     Tables: {
-      books: {
+      documents: {
         Row: {
-          created_at: string
+          created_at: string | null
           id: string
-          is_finished: boolean
           register_id: string
-          title: string
-          updated_at: string | null
+          thumbnail: string | null
+          url: string
         }
         Insert: {
-          created_at?: string
+          created_at?: string | null
           id: string
-          is_finished?: boolean
           register_id: string
-          title: string
-          updated_at?: string | null
+          thumbnail?: string | null
+          url: string
         }
         Update: {
-          created_at?: string
+          created_at?: string | null
           id?: string
-          is_finished?: boolean
           register_id?: string
-          title?: string
-          updated_at?: string | null
+          thumbnail?: string | null
+          url?: string
         }
       }
     }

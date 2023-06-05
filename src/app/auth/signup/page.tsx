@@ -1,4 +1,4 @@
-import { SignupComponent } from "../../_components/template/auth/signup";
+import { SignupComponent } from "../../_components/auth/signup";
 
 export default function Signup() {
   return (

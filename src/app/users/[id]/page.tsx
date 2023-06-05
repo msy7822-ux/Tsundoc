@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-import { ClerkProfileDetail } from "@/app/_components/template/user/clerk-profile-detail";
+import { ClerkProfileDetail } from "@/app/_components/users/template/clerk-profile-detail";
 import { Suspense } from "react";
 import React from "react";
 import "../../../styles/clerk-style.css";

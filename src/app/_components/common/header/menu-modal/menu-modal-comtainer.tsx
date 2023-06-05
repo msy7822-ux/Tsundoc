@@ -3,7 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 import { IoSettingsOutline } from "react-icons/io5";
-import { LogoutButtonComponent } from "@/app/_components/template/auth/logout";
+import { LogoutButtonComponent } from "@/app/_components/auth/logout";
 
 export function MenuModalContainer({
   isOpen,

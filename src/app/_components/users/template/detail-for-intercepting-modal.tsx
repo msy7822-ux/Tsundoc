@@ -1,9 +1,9 @@
 import { convertProvider, convertProviderIcon } from "@/lib/provider";
 import Image from "next/image";
-import { LogoutButtonComponent } from "../auth/logout";
+import { LogoutButtonComponent } from "../../auth/logout";
 import { currentUser } from "@clerk/nextjs";
 import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
-import { DetailButton } from "./detail-button";
+import { DetailButton } from "../detail-button";
 
 export async function UserDetail() {
   const user = await currentUser();
