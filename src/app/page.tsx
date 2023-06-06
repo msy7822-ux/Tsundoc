@@ -3,7 +3,6 @@ import { currentUser } from "@clerk/nextjs";
 import { CreateArticle } from "./_components/article/create-article";
 import { generateSupabaseClient } from "@/lib/supabase";
 import { ArticlesList } from "./_components/article/template/articles-list";
-import { fetchTitleInfo } from "@/lib/ext-metadata";
 
 export const metadata = {
   title: "TusnDoc",
@@ -20,14 +19,14 @@ export default async function Home() {
 
   if (error) throw new Error(error.message);
 
-  console.log(
-    await fetchTitleInfo("https://yokinist.me/supabase-upload-image")
-  );
-
   const userArticles = data?.map((article) => {
     return {
+      title: article.title,
+      domain: article.domain,
       url: article.url,
       thumbnail: article.thumbnail,
+      isCompleted: article.is_completed,
+      content: article.content,
     };
   });
 

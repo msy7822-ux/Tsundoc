@@ -1,17 +1,20 @@
 import axios from "axios";
 import { JSDOM } from "jsdom";
 
+export async function getDomData(url: string) {
+  const response = await axios.get(url);
+  const dom = new JSDOM(response.data);
+
+  return dom;
+}
+
 export async function fetchOgpImage(url: string) {
   try {
-    const response = await axios.get(url);
-    const dom = new JSDOM(response.data);
+    const dom = await getDomData(url);
     const ogImage = dom.window.document.querySelector(
       'meta[property="og:image"]'
     ) as HTMLMetaElement;
     const res = ogImage.content;
-    const contentRegex = new RegExp(res);
-
-    if (!contentRegex.test("undefined")) return null;
 
     return res;
   } catch (error) {
@@ -22,8 +25,8 @@ export async function fetchOgpImage(url: string) {
 
 export async function fetchTitleInfo(url: string) {
   try {
-    const response = await axios.get(url);
-    const dom = new JSDOM(response.data);
+    const dom = await getDomData(url);
+
     const title = dom.window.document.querySelector(
       "title"
     ) as HTMLTitleElement;
