@@ -3,7 +3,7 @@ export function Thumbnail({ imageUrl }: { imageUrl: string | null }) {
     <div className="inline-block">
       {/* eslint-disable @next/next/no-img-element */}
       <img
-        src={imageUrl ?? "/books-purple.svg"}
+        src={imageUrl ?? "/not-found-ogp.png"}
         alt=""
         width={280}
         height={160}
