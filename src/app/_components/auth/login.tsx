@@ -1,6 +1,7 @@
 "use client";
 
 import { useSignIn } from "@clerk/nextjs";
+import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
 
@@ -8,10 +9,10 @@ export function LoginComponent() {
   const { signIn } = useSignIn();
   // const router = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = async (strategy: OAuthStrategy) => {
     if (signIn) {
       await signIn.authenticateWithRedirect({
-        strategy: "oauth_github",
+        strategy: strategy,
         redirectUrl: "/sso-callback",
         redirectUrlComplete: "/",
       });
@@ -24,7 +25,7 @@ export function LoginComponent() {
         <button
           type="button"
           className="auth-button"
-          onClick={() => handleLogin()}
+          onClick={() => handleLogin("oauth_google")}
         >
           Googleアカウントでログイン
         </button>
@@ -32,7 +33,7 @@ export function LoginComponent() {
         <button
           type="button"
           className="auth-button"
-          onClick={() => handleLogin()}
+          onClick={() => handleLogin("oauth_github")}
         >
           GitHubアカウントでログイン
         </button>

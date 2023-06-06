@@ -3,6 +3,7 @@
 // import { useRouter } from "next/navigation";
 import { useSignUp } from "@clerk/nextjs";
 import { toast, ToastContainer } from "react-toastify";
+import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
 import Link from "next/link";
 
 export function SignupComponent() {
@@ -10,11 +11,11 @@ export function SignupComponent() {
   const { signUp } = useSignUp();
   const notify = () => toast("新規登録に失敗しました。");
 
-  const handleSignup = async () => {
+  const handleSignup = async (strategy: OAuthStrategy) => {
     try {
       if (signUp) {
         await signUp.authenticateWithRedirect({
-          strategy: "oauth_github",
+          strategy: strategy,
           redirectUrl: "/sso-callback",
           redirectUrlComplete: "/",
         });
@@ -32,7 +33,7 @@ export function SignupComponent() {
         <button
           type="button"
           className="auth-button"
-          onClick={() => handleSignup()}
+          onClick={() => handleSignup("oauth_google")}
         >
           Googleアカウントで新規登録
         </button>
@@ -40,7 +41,7 @@ export function SignupComponent() {
         <button
           type="button"
           className="auth-button"
-          onClick={() => handleSignup()}
+          onClick={() => handleSignup("oauth_github")}
         >
           GitHubアカウントで新規登録
         </button>
