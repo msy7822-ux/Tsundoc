@@ -11,7 +11,7 @@ const META_ROUTES_LIST = [
 export default authMiddleware({
   beforeAuth(_req, _evt) {},
   ignoredRoutes: ["/api/supabase/create-user-profile"],
-  publicRoutes: ["/", "/auth/login", "/auth/signup", "/intro", "/"],
+  publicRoutes: ["/", "/intro"],
   afterAuth(auth, req, _evt) {
     if (
       [...META_ROUTES_LIST, ROOT_PAGE].some((safe) => {
