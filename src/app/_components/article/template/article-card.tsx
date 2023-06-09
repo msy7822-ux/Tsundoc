@@ -5,7 +5,6 @@ import { Thumbnail } from "../thumbnail";
 import Link from "next/link";
 import { ArticleSettingButton } from "../article-setting-button";
 
-
 type Props = {
   article: ArticleType;
 };
