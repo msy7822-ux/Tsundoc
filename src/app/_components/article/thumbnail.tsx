@@ -7,7 +7,7 @@ export function Thumbnail({ imageUrl }: { imageUrl: string | null }) {
         alt=""
         width={280}
         height={160}
-        className="rounded-lg h-[135px] w-[300px] border border-gray-100 shadow-md"
+        className="rounded-lg h-[140px] w-[300px] border border-gray-100 shadow-md _object-contain"
       />
     </div>
   );
