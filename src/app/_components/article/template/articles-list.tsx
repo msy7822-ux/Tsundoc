@@ -8,7 +8,12 @@ export function ArticlesList({
 }) {
   return (
     // <div className="w-full max-w-3xl mx-auto">
-    <div className="flex flex-wrap justify-around gap-3">
+    <div
+      className="
+      grid lg:grid-cols-4 md:grid-cols-3
+      sm:grid-cols-2 place-items-center gap-3
+    "
+    >
       {userArticles.map((article, i) => {
         return (
           <div key={i}>

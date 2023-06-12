@@ -4,7 +4,12 @@ import Link from "next/link";
 
 export function HeaderContent() {
   return (
-    <div className="w-full px-3 sm:px-5 flex justify-between">
+    <div
+      className="
+        flex justify-between
+        mx-auto w-full max-w-5xl
+      "
+    >
       <Link href="/">
         <ServiceIcon></ServiceIcon>
       </Link>

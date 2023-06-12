@@ -24,3 +24,15 @@ export async function registerArticles(siteUrl: string, userId: string) {
 
   return data;
 }
+
+export async function deleteArticles(id: string) {
+  const supabase = await generateSupabaseClient();
+  const { data, error } = await supabase
+    .from("documents")
+    .delete()
+    .eq("id", id);
+
+  if (error) throw console.error(error);
+
+  return data;
+}
