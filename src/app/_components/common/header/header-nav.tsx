@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeaderIcon } from "./header-icon";
 import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 import { getCurrentUser } from "@/lib/clerk";
+// import { UserButton } from "@clerk/nextjs";
 
 export async function HeaderNav() {
   const user = await getCurrentUser();
@@ -18,6 +19,7 @@ function AuthorizedNav({ user }: { user: User }) {
     <ul className="flex items-center gap-3 text-main">
       <li>
         <HeaderIcon user={user}></HeaderIcon>
+        {/* <UserButton /> */}
       </li>
     </ul>
   );

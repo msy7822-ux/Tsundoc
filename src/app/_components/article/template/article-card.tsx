@@ -25,10 +25,11 @@ export function ArticleCard({ article }: Props) {
 
           <div
             className="
-          inline-block py-1 px-4
-          rounded-md shadow-md bg-main
-          text-white text-xs
-          "
+              inline-block py-1 px-4
+              rounded-md shadow-md bg-main
+              text-white text-xs overflow-hidden text-ellipsis
+              whitespace-nowrap max-w-[150px]
+            "
           >
             {article.domain}
           </div>
