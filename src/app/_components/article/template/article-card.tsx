@@ -14,7 +14,7 @@ export function ArticleCard({ article }: Props) {
     <div className="relative">
       <div
         className="
-          w-[280px] border inline-block
+          sm:w-[250px] w-full max-w-[280px] border inline-block
           rounded-md py-4 px-3 shadow-md
         "
       >

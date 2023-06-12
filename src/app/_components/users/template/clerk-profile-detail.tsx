@@ -21,7 +21,6 @@ export function ClerkProfileDetail({ profile }: Props) {
       setIsLoading(false);
     }, 2000);
 
-    // クリーンアップ関数でタイマーをクリアします
     return () => {
       clearTimeout(timer);
     };

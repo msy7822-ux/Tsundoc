@@ -7,7 +7,8 @@ export function ArticlesList({
   userArticles: ArticleType[];
 }) {
   return (
-    <div className="flex flex-wrap gap-3">
+    // <div className="w-full max-w-3xl mx-auto">
+    <div className="flex flex-wrap justify-around gap-3">
       {userArticles.map((article, i) => {
         return (
           <div key={i}>
@@ -16,5 +17,6 @@ export function ArticlesList({
         );
       })}
     </div>
+    // </div>
   );
 }

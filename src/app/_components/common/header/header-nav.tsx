@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { currentUser } from "@clerk/nextjs";
 import { HeaderIcon } from "./header-icon";
 import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
+import { getCurrentUser } from "@/lib/clerk";
 
 export async function HeaderNav() {
-  const user = await currentUser();
+  const user = await getCurrentUser();
 
   return !!user || user === "undefined" ? (
     <AuthorizedNav user={user} />
