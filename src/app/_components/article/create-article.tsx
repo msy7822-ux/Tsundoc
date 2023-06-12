@@ -31,6 +31,8 @@ export function CreateArticle() {
     }
   };
 
+  if (!user) return null;
+
   return (
     <div>
       <ErrorBlock
@@ -50,6 +52,7 @@ export function CreateArticle() {
           type="button"
           className="my-5 py-2 px-5 border rounded-md"
           onClick={handleSubmit}
+          disabled={!user}
         >
           記事を登録する
         </button>
