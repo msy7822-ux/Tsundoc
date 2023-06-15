@@ -6,7 +6,7 @@
   ],
   "rules": {
     "tailwindcss/no-custom-classname": [
-      "error"
+      "warn"
     ]
   },
   "overrides": [
