@@ -29,7 +29,7 @@ export function SignupComponent() {
   return (
     <div className="flex flex-col gap-5">
       <ToastContainer></ToastContainer>
-      <div className="w-full flex justify-center gap-4">
+      <div className="flex w-full justify-center gap-4">
         <button
           type="button"
           className="auth-button"
@@ -47,13 +47,13 @@ export function SignupComponent() {
         </button>
       </div>
 
-      <div className="text-xs w-full text-center">
+      <div className="w-full text-center text-xs">
         新規登録できない場合は、すでにアカウントが存在している可能性があります。
         <div>
           その場合は、
           <Link
             href="/auth/login"
-            className="cursor-pointer text-sky-800 font-bold font-sans"
+            className="cursor-pointer font-sans font-bold text-sky-800"
           >
             こちらからログイン
           </Link>

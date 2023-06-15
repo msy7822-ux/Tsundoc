@@ -7,7 +7,7 @@ export function DetailButton() {
   return (
     <button
       type="button"
-      className="border rounded-md py-2 px-4"
+      className="rounded-md border px-4 py-2"
       onClick={handleOnClickDetailButton}
     >
       詳しくみる

@@ -7,7 +7,7 @@ export function ModalCloseButton() {
   const router = useRouter();
   return (
     <button
-      className="py-2 px-8 absolute top-5 right-0"
+      className="absolute right-0 top-5 px-8 py-2"
       onClick={() => {
         router.back();
       }}

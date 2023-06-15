@@ -8,9 +8,9 @@ export function Thumbnail({ imageUrl }: { imageUrl: string | null }) {
         width={280}
         height={160}
         className="
-          rounded-lg h-[140px] w-[300px]
-          border border-gray-100 shadow-md
-          object-cover
+          h-[140px] w-[300px] rounded-lg
+          border border-gray-100 object-cover
+          shadow-md
         "
       />
     </div>

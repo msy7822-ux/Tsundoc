@@ -6,8 +6,8 @@ export function ClientModalCloseButton({ close }: { close: () => void }) {
   return (
     <button
       className="
-        py-2 sm:px-4 px-2 absolute
-        sm:top-3 top-2 right-0 sm:text-2xl text-lg
+        absolute right-0 top-2 p-2
+        text-lg sm:top-3 sm:px-4 sm:text-2xl
       "
       onClick={() => {
         close();

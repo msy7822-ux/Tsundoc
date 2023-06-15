@@ -52,7 +52,7 @@ export function CreateArticleModal({
           type="text"
           value={siteUrl}
           onChange={handleOnChangeSiteUrl}
-          className="border rounded-md py-3 px-2"
+          className="rounded-md border px-2 py-3"
         />
       </ModalInner>
     </Modal>

@@ -21,7 +21,7 @@ export function LoginComponent() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="w-full flex justify-center gap-3">
+      <div className="flex w-full justify-center gap-3">
         <button
           type="button"
           className="auth-button"
@@ -39,11 +39,11 @@ export function LoginComponent() {
         </button>
       </div>
 
-      <div className="text-xs w-full text-center">
+      <div className="w-full text-center text-xs">
         ログインできない場合は、
         <Link
           href="/auth/signup"
-          className="cursor-pointer text-sky-800 font-bold font-sans"
+          className="cursor-pointer font-sans font-bold text-sky-800"
         >
           こちらから新規登録
         </Link>

@@ -19,11 +19,11 @@ export function MenuModalContainer({
     <div className="relative">
       <div
         className="
-        absolute top-[50px] right-0
-        border bg-white p-6 block z-20
-        w-[330px] rounded-md shadow-lg"
+        absolute right-0 top-[50px]
+        z-20 block w-[330px] rounded-md border
+        bg-white p-6 shadow-lg"
       >
-        <button className="absolute top-3 right-3" onClick={() => close()}>
+        <button className="absolute right-3 top-3" onClick={() => close()}>
           <IoMdClose fontSize={20}></IoMdClose>
         </button>
 

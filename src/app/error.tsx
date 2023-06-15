@@ -13,7 +13,7 @@ export default function GlobalError({
         <h2>不具合が発生しました。</h2>
         <button
           onClick={() => window.location.reload()}
-          className="border rounded-md py-2 px-4 text-sm"
+          className="rounded-md border px-4 py-2 text-sm"
         >
           リロードする
         </button>

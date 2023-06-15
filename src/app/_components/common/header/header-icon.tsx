@@ -20,7 +20,7 @@ export function HeaderIcon({ user }: { user: User }) {
         <Image
           src={user.profileImageUrl}
           alt=""
-          className={`inline-block border-4 ${borderStyle} rounded-[50%] _transition-colors`}
+          className={`inline-block border-4 ${borderStyle} _transition-colors rounded-[50%]`}
           width={40}
           height={40}
         />

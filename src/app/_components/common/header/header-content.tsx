@@ -6,8 +6,8 @@ export function HeaderContent() {
   return (
     <div
       className="
-        flex justify-between
-        mx-auto w-full max-w-5xl
+        mx-auto flex
+        w-full max-w-5xl justify-between
       "
     >
       <Link href="/">

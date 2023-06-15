@@ -10,8 +10,8 @@ export function ArticlesList({
     // <div className="w-full max-w-3xl mx-auto">
     <div
       className="
-      grid lg:grid-cols-4 md:grid-cols-3
-      sm:grid-cols-2 place-items-center gap-3
+      grid place-items-center gap-3
+      sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
     "
     >
       {userArticles.map((article, i) => {

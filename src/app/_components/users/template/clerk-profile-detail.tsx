@@ -30,7 +30,7 @@ export function ClerkProfileDetail({ profile }: Props) {
 
   return (
     <div>
-      <div className="w-full flex flex-col items-center">
+      <div className="flex w-full flex-col items-center">
         <UserProfile
           appearance={{
             variables: {
@@ -40,23 +40,23 @@ export function ClerkProfileDetail({ profile }: Props) {
           }}
         />
 
-        <div className="max-w-[808px] w-full flex flex-col gap-8">
+        <div className="flex w-full max-w-[808px] flex-col gap-8">
           <div>
-            <h1 className="text-[1.5rem] font-bold text-[#4157D0] tracking-wide">
+            <h1 className="text-[1.5rem] font-bold tracking-wide text-[#4157D0]">
               Profile
             </h1>
             <p className="text-[#2f2d2da6]">Manage your Profile Information</p>
           </div>
 
           <div>
-            <p className="text-[#2f2d2d] border-b border-[#0000000f] mb-3">
+            <p className="mb-3 border-b border-[#0000000f] text-[#2f2d2d]">
               Email Address
             </p>
             <p className=" ml-3">{profile.emailAddress}</p>
           </div>
 
           <div>
-            <p className="text-[#2f2d2d] border-b border-[#0000000f] mb-3">
+            <p className="mb-3 border-b border-[#0000000f] text-[#2f2d2d]">
               Phone Number
             </p>
             <p className=" ml-3">{profile.phoneNumber || "(none)"}</p>

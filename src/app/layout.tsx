@@ -1,5 +1,5 @@
-import { Header } from "./_components/common/header/header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Header } from "./_components/common/header/header";
 import "./globals.css";
 
 export default async function RootLayout({
@@ -15,7 +15,7 @@ export default async function RootLayout({
         </head>
         <body>
           <Header></Header>
-          <div className="mx-auto w-full max-w-5xl lg:p-0 p-3">{children}</div>
+          <div className="mx-auto w-full max-w-5xl p-3 lg:p-0">{children}</div>
         </body>
       </ClerkProvider>
     </html>

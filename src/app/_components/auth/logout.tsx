@@ -13,8 +13,8 @@ export function LogoutButtonComponent() {
       <button
         type="button"
         className="
-          text-main flex items-center justify-center gap-2
-          border shadow-sm py-2 px-8 rounded-md w-full"
+          flex w-full items-center justify-center gap-2
+          rounded-md border px-8 py-2 text-main shadow-sm"
         onClick={() => {
           signOut();
           router.push("/");

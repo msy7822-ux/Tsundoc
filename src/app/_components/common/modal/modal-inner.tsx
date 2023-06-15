@@ -2,8 +2,8 @@ export function ModalInner({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="
-      relative bg-white w-[90%] sm:w-[60%] mx-auto rounded-[6px]
-      sm:p-5 p-2 border border-gray-300 shadow-lg min-h-[450px]
+      relative mx-auto min-h-[450px] w-[90%] rounded-[6px] border
+      border-gray-300 bg-white p-2 shadow-lg sm:w-[60%] sm:p-5
     "
     >
       <>{children}</>

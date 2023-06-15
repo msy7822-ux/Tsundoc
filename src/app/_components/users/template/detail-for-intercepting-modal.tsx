@@ -13,12 +13,12 @@ export async function UserDetail() {
     | "github";
 
   return (
-    <div className="p-5 sm:p-8 flex flex-col gap-8 items-start">
+    <div className="flex flex-col items-start gap-8 p-5 sm:p-8">
       <div className="flex items-center gap-8">
         <Image
           src={user?.profileImageUrl ?? ""}
           alt=""
-          className="inline-block border-2 border-main rounded-[50%]"
+          className="inline-block rounded-[50%] border-2 border-main"
           width={100}
           height={100}
         />
@@ -31,8 +31,8 @@ export async function UserDetail() {
       <div className="w-full">
         <div
           className="
-          w-full border-b border-gray-300
-          text-gray-500 mb-3"
+          mb-3 w-full border-b
+          border-gray-300 text-gray-500"
         >
           認証方法
         </div>
@@ -44,8 +44,8 @@ export async function UserDetail() {
       <div className="w-full">
         <div
           className="
-          w-full border-b border-gray-300
-          text-gray-500 mb-3"
+          mb-3 w-full border-b
+          border-gray-300 text-gray-500"
         >
           メールアドレス
         </div>

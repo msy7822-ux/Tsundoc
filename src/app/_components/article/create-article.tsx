@@ -28,10 +28,10 @@ export function CreateArticle() {
         close={() => setIsDisplayModal(false)}
       ></CreateArticleModal>
 
-      <div className="flex gap-4 items-center">
+      <div className="flex items-center gap-4">
         <button
           type="button"
-          className="my-5 py-2 px-5 border rounded-md"
+          className="my-5 rounded-md border px-5 py-2"
           onClick={() => setIsDisplayModal(true)}
           disabled={!user}
         >

@@ -14,21 +14,21 @@ export function ArticleCard({ article }: Props) {
     <div className="relative">
       <div
         className="
-          sm:w-[250px] w-full max-w-[300px] border inline-block
-          rounded-md py-4 px-3 shadow-md
+          inline-block w-full max-w-[300px] rounded-md border
+          px-3 py-4 shadow-md sm:w-[250px]
         "
       >
-        <div className="flex flex-col gap-5 items-start relative">
-          <div className="flex items-center gap-2 absolute top-0 right-0">
+        <div className="relative flex flex-col items-start gap-5">
+          <div className="absolute right-0 top-0 flex items-center gap-2">
             <ArticleSettingButton></ArticleSettingButton>
           </div>
 
           <div
             className="
-              inline-block py-1 px-4
-              rounded-md shadow-md bg-main
-              text-white text-xs overflow-hidden text-ellipsis
-              whitespace-nowrap max-w-[150px]
+              inline-block max-w-[150px] overflow-hidden
+              text-ellipsis whitespace-nowrap rounded-md
+              bg-main px-4 py-1 text-xs
+              text-white shadow-md
             "
           >
             {article.domain}
@@ -36,7 +36,7 @@ export function ArticleCard({ article }: Props) {
           <Link
             href={article.url}
             target="_blank"
-            className="hover:opacity-60 flex flex-col gap-3"
+            className="flex flex-col gap-3 hover:opacity-60"
           >
             <h3 className="text-sm">{article.title ?? ""}</h3>
             <Thumbnail imageUrl={article.thumbnail}></Thumbnail>
