@@ -1,7 +1,6 @@
-import React from "react";
+import { getArticles } from "@/lib/supabase";
 import { currentUser } from "@clerk/nextjs";
 import { CreateArticle } from "./_components/article/create-article";
-import { generateSupabaseClient } from "@/lib/supabase";
 import { ArticlesList } from "./_components/article/template/articles-list";
 
 export const metadata = {
@@ -11,29 +10,14 @@ export const metadata = {
 
 export default async function Home() {
   const user = await currentUser();
-  const supabase = await generateSupabaseClient();
-  const { data, error } = await supabase
-    .from("documents")
-    .select()
-    .eq("register_id", user?.id);
+  const userArticles = await getArticles(user?.id ?? "");
 
-  if (error) throw new Error(error.message);
-
-  const userArticles = data?.map((article) => {
-    return {
-      title: article.title,
-      domain: article.domain,
-      url: article.url,
-      thumbnail: article.thumbnail,
-      isCompleted: article.is_completed,
-      content: article.content,
-    };
-  });
+  // console.log("userArticles", userArticles);
 
   return (
     <main className="">
       <CreateArticle></CreateArticle>
-      <ArticlesList userArticles={userArticles}></ArticlesList>
+      <ArticlesList userArticles={userArticles ?? []}></ArticlesList>
     </main>
   );
 }

@@ -1,9 +1,9 @@
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { ClientModalCloseButton } from "../common/modal/client-modal-close-button";
 import { Modal } from "../common/modal/modal";
 import { ModalInner } from "../common/modal/modal-inner";
 import { registerArticles } from "@/actions/supabase/articles";
-import { useUser } from "@clerk/nextjs";
-import { ClientModalCloseButton } from "../common/modal/client-modal-close-button";
 
 type Props = {
   siteUrl: string;
@@ -54,6 +54,16 @@ export function CreateArticleModal({
           onChange={handleOnChangeSiteUrl}
           className="rounded-md border px-2 py-3"
         />
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            className="my-5 rounded-md border px-5 py-2"
+            onClick={handleSubmit}
+            disabled={!user}
+          >
+            登録する
+          </button>
+        </div>
       </ModalInner>
     </Modal>
   );

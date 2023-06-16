@@ -10,12 +10,13 @@ type Props = {
 };
 
 export function ArticleCard({ article }: Props) {
+  console.log(article.thumbnail);
   return (
     <div className="relative">
       <div
         className="
-          max-w-300 inline-block w-full rounded-md border
-          px-3 py-4 shadow-md sm:w-250
+        max-w-300 inline-block w-full rounded-md border
+        px-3 py-4 shadow-md sm:w-250
         "
       >
         <div className="relative flex flex-col items-start gap-5">

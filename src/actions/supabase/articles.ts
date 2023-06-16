@@ -1,18 +1,23 @@
 "use server";
 
 import { fetchOgpImage, fetchTitleInfo } from "@/lib/ext-metadata";
-import { generateSupabaseClient } from "@/lib/supabase";
+import { fetchFileObject } from "@/lib/file";
+import { generateSupabaseClient, uploadToStorage } from "@/lib/supabase";
 import { v4 as uuidv4 } from "uuid";
 
 export async function registerArticles(siteUrl: string, userId: string) {
-  const ogImageUrl = await fetchOgpImage(siteUrl);
   const title = await fetchTitleInfo(siteUrl);
+  const ogImageUrl = await fetchOgpImage(siteUrl);
+  const blob = await fetchFileObject(ogImageUrl ?? "");
+
+  const uuid = uuidv4();
+  await uploadToStorage(blob, userId, uuid);
 
   const domain = new URL(siteUrl).hostname;
 
-  const supabase = await generateSupabaseClient();
+  const supabase = generateSupabaseClient();
   const { data, error } = await supabase.from("documents").insert({
-    id: uuidv4(),
+    id: uuid,
     thumbnail: ogImageUrl,
     register_id: userId,
     url: siteUrl,
@@ -26,7 +31,7 @@ export async function registerArticles(siteUrl: string, userId: string) {
 }
 
 export async function deleteArticles(id: string) {
-  const supabase = await generateSupabaseClient();
+  const supabase = generateSupabaseClient();
   const { data, error } = await supabase
     .from("documents")
     .delete()
