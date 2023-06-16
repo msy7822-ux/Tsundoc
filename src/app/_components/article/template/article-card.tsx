@@ -1,9 +1,9 @@
 "use client";
 
 import { ArticleType } from "@/types/article";
-import { Thumbnail } from "../thumbnail";
 import Link from "next/link";
 import { ArticleSettingButton } from "../article-setting-button";
+import { Thumbnail } from "../thumbnail";
 
 type Props = {
   article: ArticleType;
@@ -14,8 +14,8 @@ export function ArticleCard({ article }: Props) {
     <div className="relative">
       <div
         className="
-          inline-block w-full max-w-[300px] rounded-md border
-          px-3 py-4 shadow-md sm:w-[250px]
+          max-w-300 inline-block w-full rounded-md border
+          px-3 py-4 shadow-md sm:w-250
         "
       >
         <div className="relative flex flex-col items-start gap-5">
@@ -25,7 +25,7 @@ export function ArticleCard({ article }: Props) {
 
           <div
             className="
-              inline-block max-w-[150px] overflow-hidden
+              max-w-150 inline-block overflow-hidden
               text-ellipsis whitespace-nowrap rounded-md
               bg-main px-4 py-1 text-xs
               text-white shadow-md

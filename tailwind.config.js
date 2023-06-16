@@ -17,8 +17,9 @@ module.exports = {
         main: "#4157D0",
       },
       spacing: {
-        128: "32rem",
-        144: "36rem",
+        ...Object.fromEntries(
+          [...Array(1201)].map((_, i) => i).map((num) => [num, `${num}px`])
+        ),
       },
       borderRadius: {
         "4xl": "2rem",
