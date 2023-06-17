@@ -1,7 +1,7 @@
+import { getCurrentUser } from "@/lib/clerk";
+import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 import Link from "next/link";
 import { HeaderIcon } from "./header-icon";
-import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
-import { getCurrentUser } from "@/lib/clerk";
 // import { UserButton } from "@clerk/nextjs";
 
 export async function HeaderNav() {
@@ -16,7 +16,7 @@ export async function HeaderNav() {
 
 function AuthorizedNav({ user }: { user: User }) {
   return (
-    <ul className="flex items-center gap-3 text-main">
+    <ul className="flex items-center gap-12 text-main">
       <li>
         <HeaderIcon user={user}></HeaderIcon>
         {/* <UserButton /> */}
@@ -27,7 +27,7 @@ function AuthorizedNav({ user }: { user: User }) {
 
 function NoAuthorizedNav() {
   return (
-    <ul className="flex items-center gap-3 text-main">
+    <ul className="flex items-center gap-12 text-main">
       <li>
         <Link href="/auth/login">Login</Link>
       </li>

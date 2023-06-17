@@ -1,45 +1,48 @@
 "use client";
 
+import { updateAccessCount } from "@/actions/supabase/articles";
 import { ArticleType } from "@/types/article";
 import Link from "next/link";
+import { tv } from "tailwind-variants";
 import { ArticleSettingButton } from "../article-setting-button";
+import { ArticleLabael } from "../label";
 import { Thumbnail } from "../thumbnail";
+import { ArticleTitle } from "../title";
 
 type Props = {
   article: ArticleType;
 };
 
+const cardWrapperStyle = tv({
+  base: "inline-block w-full max-w-350 rounded-md border px-12 py-16 shadow-md sm:w-250",
+  variants: {
+    accessed: {
+      true: "opacity-60",
+    },
+  },
+});
+
 export function ArticleCard({ article }: Props) {
-  console.log(article.thumbnail);
+  const handleOnClick = async () => {
+    await updateAccessCount(article.id);
+  };
+
   return (
     <div className="relative">
-      <div
-        className="
-        inline-block w-full max-w-350 rounded-md
-        border px-12 py-16 shadow-md sm:w-250
-        "
-      >
+      <div className={cardWrapperStyle({ accessed: article.accessCount > 0 })}>
         <div className="relative flex flex-col items-start gap-15">
           <div className="absolute right-0 top-0 flex items-center gap-16">
             <ArticleSettingButton></ArticleSettingButton>
           </div>
 
-          <div
-            className="
-              inline-block max-w-150 overflow-hidden
-              text-ellipsis whitespace-nowrap rounded-md
-              bg-main px-16 py-4 text-xs
-              text-white shadow-md
-            "
-          >
-            {article.domain}
-          </div>
+          <ArticleLabael labelText={article.domain}></ArticleLabael>
           <Link
             href={article.url}
             target="_blank"
             className="flex flex-col gap-12 hover:opacity-60"
+            onClick={handleOnClick}
           >
-            <h3 className="text-sm">{article.title ?? ""}</h3>
+            <ArticleTitle title={article.title}></ArticleTitle>
             <Thumbnail imageUrl={article.thumbnail}></Thumbnail>
           </Link>
         </div>

@@ -14,8 +14,8 @@ export async function registerArticles(siteUrl: string, userId: string) {
   await uploadToStorage(blob, userId, uuid);
 
   const domain = new URL(siteUrl).hostname;
-
   const supabase = generateSupabaseClient();
+
   const { data, error } = await supabase.from("documents").insert({
     id: uuid,
     thumbnail: ogImageUrl,
@@ -29,6 +29,18 @@ export async function registerArticles(siteUrl: string, userId: string) {
 
   return data;
 }
+
+export const updateAccessCount = async (articleId: string) => {
+  const supabase = generateSupabaseClient();
+  const { data, error } = await supabase
+    .from("documents")
+    .update({ access_count: 1 })
+    .eq("id", articleId);
+
+  if (error) throw console.error(error);
+
+  return data;
+};
 
 export async function deleteArticles(id: string) {
   const supabase = generateSupabaseClient();

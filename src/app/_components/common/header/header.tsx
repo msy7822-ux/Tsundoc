@@ -4,8 +4,8 @@ export function Header() {
   return (
     <div
       className="
-        relative flex h-80 flex-col
-        items-start justify-center border-gray-100
+        relative flex flex-col items-start
+        justify-center border-gray-100 bg-white
         p-12 shadow-sm lg:p-0
       "
     >

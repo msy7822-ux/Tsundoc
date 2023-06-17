@@ -13,7 +13,7 @@ export default async function Home() {
   const userArticles = await getArticles(user?.id ?? "");
 
   return (
-    <main className="">
+    <main className="relative">
       <CreateArticle isDisplay={!!user}></CreateArticle>
       <ArticlesList userArticles={userArticles ?? []}></ArticlesList>
     </main>

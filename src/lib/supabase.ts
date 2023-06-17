@@ -36,12 +36,14 @@ const generateArticleObject = (userId: string, article: any) => {
   const imageUrl = getAnOgImage(userId, article.id);
 
   return {
+    id: article.id,
     title: article.title,
     domain: article.domain,
     url: article.url,
     thumbnail: imageUrl,
     isCompleted: article.is_completed,
     content: article.content,
+    accessCount: article.access_count,
   };
 };
 
