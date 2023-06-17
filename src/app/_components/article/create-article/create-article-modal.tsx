@@ -4,6 +4,7 @@ import { registerArticles } from "@/actions/supabase/articles";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import { ClientModalCloseButton } from "../../common/modal/client-modal-close-button";
 import { Modal } from "../../common/modal/modal";
 import { ModalInner } from "../../common/modal/modal-inner";
@@ -12,7 +13,7 @@ import { ResetButton } from "./buttons/reset-button";
 type Props = {
   siteUrl: string;
   setSiteUrl: (value: string) => void;
-  setError: (value: string) => void;
+  setError: (value: string | null) => void;
   isDisplay: boolean;
   close: () => void;
 };
@@ -31,15 +32,23 @@ export function CreateArticleModal({
   if (!isDisplay) return null;
 
   const handleSubmit = async () => {
-    if (!siteUrl || siteUrl === "") return setError("URLを入力してください");
+    if (!siteUrl || siteUrl === "") {
+      close();
+      return setError("URLを入力してください");
+    }
 
     // FIXME: URLのバリデーションが未完成
     try {
       await registerArticles(siteUrl, user?.id ?? "");
+
       router.refresh();
+      setError(null);
     } catch (error) {
       setError("エラーが発生しました");
       console.error(error);
+    } finally {
+      handleOnResetTextarea();
+      close();
     }
   };
 
@@ -75,9 +84,9 @@ export function CreateArticleModal({
             value={siteUrl}
             onChange={handleOnChangeSiteUrl}
             className="
-              relative resize-none rounded-md
-              border px-2 py-3
-              text-xs sm:text-sm
+            relative resize-none rounded-md
+            border px-2 py-3
+            text-xs sm:text-sm
             "
             ref={inputRef}
           ></textarea>

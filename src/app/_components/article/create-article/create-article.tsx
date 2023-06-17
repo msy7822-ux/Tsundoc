@@ -18,12 +18,13 @@ export function CreateArticle({ isDisplay }: Props) {
 
   return (
     <>
-      <div className="mx-auto mb-10 w-full max-w-350 sm:max-w-5xl">
-        <ErrorBlock
-          message={error ?? ""}
-          isDisplay={!!error && error !== ""}
-        ></ErrorBlock>
+      <ErrorBlock
+        message={error ?? ""}
+        isDisplay={!!error && error !== ""}
+        close={() => setError(null)}
+      ></ErrorBlock>
 
+      <div className="mx-auto mb-10 w-full max-w-350 sm:max-w-5xl">
         <CreateArticleModal
           siteUrl={siteUrl}
           setSiteUrl={setSiteUrl}
