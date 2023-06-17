@@ -51,7 +51,8 @@ export const getArticles = async (userId: string) => {
   const { data, error } = await supabase
     .from("documents")
     .select()
-    .eq("register_id", userId);
+    .eq("register_id", userId)
+    .order("created_at", { ascending: false });
 
   if (error) throw new Error(error.message);
 
