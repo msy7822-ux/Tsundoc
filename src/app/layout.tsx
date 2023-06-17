@@ -15,7 +15,7 @@ export default async function RootLayout({
         </head>
         <body>
           <Header></Header>
-          <div className="mx-auto w-full max-w-5xl p-3 lg:p-0">{children}</div>
+          <div className="mx-auto w-full max-w-5xl p-12 lg:p-0">{children}</div>
         </body>
       </ClerkProvider>
     </html>
