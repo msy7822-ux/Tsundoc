@@ -6,7 +6,7 @@ export function ClientModalCloseButton({ close }: { close: () => void }) {
   return (
     <button
       className="
-        absolute right-0 top-2 p-2
+        absolute right-5 top-5 p-2
         text-lg sm:top-3 sm:px-4 sm:text-2xl
       "
       onClick={() => {
