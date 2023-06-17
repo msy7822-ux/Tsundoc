@@ -78,17 +78,23 @@ export function CreateArticleModal({
     <Modal>
       <ModalInner>
         <ClientModalCloseButton close={close}></ClientModalCloseButton>
-        <div className="mt-20 flex flex-col gap-20">
-          <textarea
-            value={siteUrl}
-            onChange={handleOnChangeSiteUrl}
-            className="
-            relative resize-none rounded-md
-            border px-2 py-3
-            text-xs sm:text-sm
-            "
-            ref={inputRef}
-          ></textarea>
+        <div className="mt-20 flex w-full flex-col gap-20">
+          <div className="flex w-full items-center">
+            <textarea
+              value={siteUrl}
+              onChange={handleOnChangeSiteUrl}
+              className="
+                relative h-50 resize-none
+                rounded-md border px-2 py-3
+                text-xs sm:text-sm
+                "
+              ref={inputRef}
+            ></textarea>
+            <ResetButton
+              handleOnClick={handleOnResetTextarea}
+              isDisabled={!user}
+            ></ResetButton>
+          </div>
 
           <div>
             <button
@@ -108,11 +114,6 @@ export function CreateArticleModal({
             >
               ペースト
             </button>
-
-            <ResetButton
-              handleOnClick={handleOnResetTextarea}
-              isDisabled={!user}
-            ></ResetButton>
           </div>
         </div>
       </ModalInner>

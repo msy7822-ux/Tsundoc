@@ -19,8 +19,8 @@ export function ErrorBlock({ message, isDisplay, close }: Props) {
       <div
         className="
         mx-auto flex w-[90%] items-center
-        justify-between rounded-md bg-red-600 p-10
-        text-white shadow-xl"
+        justify-between rounded-md bg-red-600
+        px-10 py-15 text-white shadow-xl"
       >
         <span>{message}</span>
         <button type="button" onClick={() => close()}>

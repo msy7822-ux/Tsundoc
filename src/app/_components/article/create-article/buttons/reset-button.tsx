@@ -12,8 +12,8 @@ export function ResetButton({ handleOnClick, isDisabled }: Props) {
     <button
       type="button"
       className="
-        block rounded-md
-        border px-5 py-2
+        block h-50 rounded-md
+        border px-5 py-3
       "
       onClick={handleOnClick}
       disabled={isDisabled}
