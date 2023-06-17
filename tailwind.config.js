@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
+const spacingObj = Object.fromEntries(
+  [...Array(1201)].map((_, i) => i).map((num) => [num, `${num}px`])
+);
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,9 +21,13 @@ module.exports = {
         main: "#4157D0",
       },
       spacing: {
-        ...Object.fromEntries(
-          [...Array(1201)].map((_, i) => i).map((num) => [num, `${num}px`])
-        ),
+        ...spacingObj,
+      },
+      maxWidth: {
+        ...spacingObj,
+      },
+      maxHeight: {
+        ...spacingObj,
       },
       borderRadius: {
         "4xl": "2rem",
