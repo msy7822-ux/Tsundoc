@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import { ErrorBlock } from "../common/error-block";
-import { useUser } from "@clerk/nextjs";
 import { CreateArticleModal } from "./create-article-modal";
 
-export function CreateArticle() {
+type Props = {
+  isDisplay: boolean;
+};
+
+export function CreateArticle({ isDisplay }: Props) {
   const [siteUrl, setSiteUrl] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [isDisplayModal, setIsDisplayModal] = useState<boolean>(false);
-  const { user } = useUser();
 
-  if (!user) return null;
+  if (!isDisplay) return null;
 
   return (
     <div>
@@ -33,7 +35,6 @@ export function CreateArticle() {
           type="button"
           className="my-5 rounded-md border px-5 py-2"
           onClick={() => setIsDisplayModal(true)}
-          disabled={!user}
         >
           記事を登録する
         </button>
