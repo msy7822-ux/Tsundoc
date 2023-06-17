@@ -2,14 +2,12 @@
 
 // import { useRouter } from "next/navigation";
 import { useSignUp } from "@clerk/nextjs";
-import { toast, ToastContainer } from "react-toastify";
 import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
 import Link from "next/link";
 
 export function SignupComponent() {
   // const router = useRouter();
   const { signUp } = useSignUp();
-  const notify = () => toast("新規登録に失敗しました。");
 
   const handleSignup = async (strategy: OAuthStrategy) => {
     try {
@@ -22,13 +20,11 @@ export function SignupComponent() {
       }
     } catch (error) {
       console.error(error);
-      notify();
     }
   };
 
   return (
     <div className="flex flex-col gap-5">
-      <ToastContainer></ToastContainer>
       <div className="flex w-full justify-center gap-4">
         <button
           type="button"

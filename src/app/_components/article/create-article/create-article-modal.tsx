@@ -4,7 +4,6 @@ import { registerArticles } from "@/actions/supabase/articles";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { ClientModalCloseButton } from "../../common/modal/client-modal-close-button";
 import { Modal } from "../../common/modal/modal";
 import { ModalInner } from "../../common/modal/modal-inner";
