@@ -1,12 +1,11 @@
+import { getCurrentUser } from "@/lib/clerk";
 import { convertProvider, convertProviderIcon } from "@/lib/provider";
-import Image from "next/image";
-import { LogoutButtonComponent } from "../../auth/logout";
-import { currentUser } from "@clerk/nextjs";
 import { OAuthStrategy } from "@clerk/nextjs/dist/types/server";
+import Image from "next/image";
 import { DetailButton } from "../detail-button";
 
 export async function UserDetail() {
-  const user = await currentUser();
+  const user = await getCurrentUser();
   const accountInfo = user?.externalAccounts[0];
   const provider = convertProvider(accountInfo?.provider as OAuthStrategy) as
     | "google"

@@ -1,11 +1,10 @@
-import { currentUser } from "@clerk/nextjs";
 import { ClerkProfileDetail } from "@/app/_components/users/template/clerk-profile-detail";
+import { getCurrentUser } from "@/lib/clerk";
 import { Suspense } from "react";
-import React from "react";
 import "../../../styles/clerk-style.css";
 
 export default async function UserDetailPage() {
-  const user = await currentUser();
+  const user = await getCurrentUser();
   const accountInfo = user?.externalAccounts[0];
 
   // user?.phoneNumbers[0] ?? null

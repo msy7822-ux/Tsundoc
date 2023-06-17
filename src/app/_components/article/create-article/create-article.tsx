@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AiOutlineFolderAdd } from "react-icons/ai";
-import { ErrorBlock } from "../common/error-block";
+import { ErrorBlock } from "../../common/error-block";
 import { CreateArticleModal } from "./create-article-modal";
 
 type Props = {

@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { cache } from "react";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL ?? "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
@@ -47,7 +48,8 @@ const generateArticleObject = (userId: string, article: any) => {
   };
 };
 
-export const getArticles = async (userId: string) => {
+// cacheメソッドでラップすることで、キャッシュを有効にする
+export const getArticles = cache(async (userId: string) => {
   const { data, error } = await supabase
     .from("documents")
     .select()
@@ -61,7 +63,7 @@ export const getArticles = async (userId: string) => {
   });
 
   return articles;
-};
+});
 
 export const getAnOgImage = (userId: string, articleUUID: string) => {
   const path = `public/${userId}/${articleUUID}.png`;

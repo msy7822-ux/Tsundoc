@@ -1,7 +1,7 @@
-import { currentUser } from "@clerk/nextjs";
+import { getCurrentUser } from "@/lib/clerk";
 
 export default async function Articles() {
-  const user = await currentUser();
+  const user = await getCurrentUser();
 
   return (
     <div>
