@@ -93,7 +93,7 @@ export function CreateArticleModal({
           <div>
             <button
               type="button"
-              className="rounded-md border px-5 py-2"
+              className="rounded-md border px-20 py-8"
               onClick={handleSubmit}
               disabled={!user}
             >
@@ -102,7 +102,7 @@ export function CreateArticleModal({
 
             <button
               type="button"
-              className="rounded-md border px-5 py-2"
+              className="rounded-md border px-20 py-8"
               onClick={handleOnClickToPaste}
               disabled={!user}
             >
