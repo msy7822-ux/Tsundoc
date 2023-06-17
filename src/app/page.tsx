@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <main className="relative">
-      <CreateArticle isDisplay={!!user}></CreateArticle>
+      <CreateArticle isDisplay={!!user} user={user}></CreateArticle>
       <ArticlesList
         userArticles={userArticles ?? []}
         user={user}

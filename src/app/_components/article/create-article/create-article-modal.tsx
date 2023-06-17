@@ -1,7 +1,7 @@
 "use client";
 
 import { registerArticles } from "@/actions/supabase/articles";
-import { useUser } from "@clerk/nextjs";
+import { User } from "@clerk/nextjs/dist/types/server";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { ClientModalCloseButton } from "../../common/modal/client-modal-close-button";
@@ -11,6 +11,7 @@ import { ResetButton } from "./buttons/reset-button";
 
 type Props = {
   siteUrl: string;
+  user: User | null;
   setSiteUrl: (value: string) => void;
   setError: (value: string | null) => void;
   isDisplay: boolean;
@@ -20,12 +21,12 @@ type Props = {
 export function CreateArticleModal({
   siteUrl,
   setSiteUrl,
+  user,
   setError,
   isDisplay,
   close,
 }: Props) {
   const router = useRouter();
-  const { user } = useUser();
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   if (!isDisplay) return null;
