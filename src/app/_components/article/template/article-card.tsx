@@ -3,6 +3,7 @@
 import { updateAccessCount } from "@/actions/supabase/articles";
 import { ArticleType } from "@/types/article";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { tv } from "tailwind-variants";
 import { ArticleSettingButton } from "../article-setting-button";
 import { ArticleLabael } from "../label";
@@ -23,8 +24,10 @@ const cardWrapperStyle = tv({
 });
 
 export function ArticleCard({ article }: Props) {
+  const router = useRouter();
   const handleOnClick = async () => {
     await updateAccessCount(article.id);
+    router.refresh();
   };
 
   return (
