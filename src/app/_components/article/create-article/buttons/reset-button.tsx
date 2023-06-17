@@ -18,7 +18,7 @@ export function ResetButton({ handleOnClick, isDisabled }: Props) {
       onClick={handleOnClick}
       disabled={isDisabled}
     >
-      <IoMdClose size={30}></IoMdClose>
+      <IoMdClose size={16}></IoMdClose>
     </button>
   );
 }

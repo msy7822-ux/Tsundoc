@@ -7,6 +7,8 @@ import { useRef } from "react";
 import { ClientModalCloseButton } from "../../common/modal/client-modal-close-button";
 import { Modal } from "../../common/modal/modal";
 import { ModalInner } from "../../common/modal/modal-inner";
+import { PasteButton } from "./buttons/paste-button";
+import { RegisterButton } from "./buttons/register-button";
 import { ResetButton } from "./buttons/reset-button";
 
 type Props = {
@@ -85,7 +87,7 @@ export function CreateArticleModal({
               value={siteUrl}
               onChange={handleOnChangeSiteUrl}
               className="
-                relative h-50 resize-none
+                relative h-50 w-full resize-none
                 rounded-md border px-2 py-3
                 text-xs sm:text-sm
                 "
@@ -97,24 +99,16 @@ export function CreateArticleModal({
             ></ResetButton>
           </div>
 
-          <div>
-            <button
-              type="button"
-              className="rounded-md border px-20 py-8"
-              onClick={handleSubmit}
-              disabled={!user}
-            >
-              登録する
-            </button>
+          <div className="flex w-full items-center justify-center gap-10">
+            <RegisterButton
+              handleOnClick={handleSubmit}
+              isDisabled={!user}
+            ></RegisterButton>
 
-            <button
-              type="button"
-              className="rounded-md border px-20 py-8"
-              onClick={handleOnClickToPaste}
-              disabled={!user}
-            >
-              ペースト
-            </button>
+            <PasteButton
+              handleOnClick={handleOnClickToPaste}
+              isDisabled={!user}
+            ></PasteButton>
           </div>
         </div>
       </ModalInner>
