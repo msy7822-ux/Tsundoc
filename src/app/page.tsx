@@ -12,7 +12,6 @@ export default async function Home() {
     <main className="relative">
       <>sss</>
       <Suspense fallback={<>Loading...</>}>
-        {/* @ts-expect-error Server Component */}
         {/* <TopArticles></TopArticles> */}
       </Suspense>
     </main>
