@@ -1,6 +1,6 @@
 "use client";
 
-import { updateAccessCount } from "@/actions/supabase/articles";
+import { deleteArticles, updateAccessCount } from "@/actions/supabase/articles";
 import { ArticleType } from "@/types/article";
 import { User } from "@clerk/nextjs/dist/types/server";
 import Link from "next/link";
@@ -33,29 +33,38 @@ export function ArticleCard({ article, user }: Props) {
     router.refresh();
   };
 
-  return (
-    <div className="relative">
-      <div className={cardWrapperStyle({ accessed: article.access_count > 0 })}>
-        <div className="relative flex flex-col items-start gap-15">
-          <div className="absolute right-0 top-0 flex items-center gap-16">
-            <ArticleTrashButton
-              articleId={article.id}
-              userId={user?.id ?? null}
-            ></ArticleTrashButton>
-          </div>
+  const handleOnClickTrashButton = async () => {
+    await deleteArticles(article.id);
+    router.refresh();
+  };
 
-          <ArticleLabael labelText={article.domain}></ArticleLabael>
-          <Link
-            href={article.url}
-            target="_blank"
-            className="flex flex-col gap-12 hover:opacity-60"
-            onClick={handleOnClick}
-          >
-            <ArticleTitle title={article.title}></ArticleTitle>
-            <Thumbnail imageUrl={article.storage_url}></Thumbnail>
-          </Link>
+  return (
+    <>
+      <div className="relative" id={article.index.toString()}>
+        <div
+          className={cardWrapperStyle({ accessed: article.access_count > 0 })}
+        >
+          <div className="relative flex flex-col items-start gap-15">
+            <div className="absolute right-0 top-0 flex items-center gap-16">
+              <ArticleTrashButton
+                userId={user?.id ?? null}
+                handleOnClick={handleOnClickTrashButton}
+              ></ArticleTrashButton>
+            </div>
+
+            <ArticleLabael labelText={article.domain}></ArticleLabael>
+            <Link
+              href={article.url}
+              target="_blank"
+              className="flex flex-col gap-12 hover:opacity-60"
+              onClick={handleOnClick}
+            >
+              <ArticleTitle title={article.title}></ArticleTitle>
+              <Thumbnail imageUrl={article.storage_url}></Thumbnail>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

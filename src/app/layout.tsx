@@ -19,7 +19,7 @@ export default async function RootLayout({
           </div>
           <div
             className="
-            mx-auto mt-80 w-full
+            mx-auto my-80 w-full
             max-w-5xl p-12 lg:p-0
           "
           >

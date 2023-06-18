@@ -13,7 +13,7 @@ export function OpenCreateArticleButton({ handleOnClick }: Props) {
       className="
           fixed bottom-30 right-20 z-40
           h-60 w-60 rounded-full
-          bg-main shadow-2xl
+          bg-main shadow-2xl border-2
         "
       onClick={handleOnClick}
     >

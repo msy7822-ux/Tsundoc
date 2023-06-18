@@ -1,30 +1,17 @@
 "use client";
 
-import { deleteArticles } from "@/actions/supabase/articles";
-import { useRouter } from "next/navigation";
 import { BsTrash3 } from "react-icons/bs";
 
 type Props = {
-  articleId: string;
   userId: string | null;
+  handleOnClick: () => void;
 };
 
-export function ArticleTrashButton({ userId, articleId }: Props) {
-  const router = useRouter();
-
+export function ArticleTrashButton({ userId, handleOnClick }: Props) {
   if (!userId) return null;
 
-  const handleOnClickTrashButton = async () => {
-    await deleteArticles(articleId);
-    router.refresh();
-  };
-
   return (
-    <button
-      type="button"
-      className="inline-block"
-      onClick={handleOnClickTrashButton}
-    >
+    <button type="button" className="inline-block" onClick={handleOnClick}>
       <BsTrash3></BsTrash3>
     </button>
   );
