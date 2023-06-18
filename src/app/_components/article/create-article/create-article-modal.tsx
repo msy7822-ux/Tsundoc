@@ -100,15 +100,15 @@ export function CreateArticleModal({
           </div>
 
           <div className="flex w-full items-center justify-center gap-10">
-            <RegisterButton
-              handleOnClick={handleSubmit}
-              isDisabled={!user}
-            ></RegisterButton>
-
             <PasteButton
               handleOnClick={handleOnClickToPaste}
               isDisabled={!user}
             ></PasteButton>
+
+            <RegisterButton
+              handleOnClick={handleSubmit}
+              isDisabled={!user}
+            ></RegisterButton>
           </div>
         </div>
       </ModalInner>
