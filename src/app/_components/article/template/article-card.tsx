@@ -2,7 +2,6 @@
 
 import { deleteArticles, updateAccessCount } from "@/actions/supabase/articles";
 import { ArticleType } from "@/types/article";
-import { User } from "@clerk/nextjs/dist/types/server";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { tv } from "tailwind-variants";
@@ -13,7 +12,6 @@ import { ArticleTitle } from "../title";
 
 type Props = {
   article: ArticleType;
-  user: User | null;
 };
 
 const cardWrapperStyle = tv({
@@ -25,7 +23,7 @@ const cardWrapperStyle = tv({
   },
 });
 
-export function ArticleCard({ article, user }: Props) {
+export function ArticleCard({ article }: Props) {
   const router = useRouter();
 
   const handleOnClick = async () => {
@@ -47,7 +45,7 @@ export function ArticleCard({ article, user }: Props) {
           <div className="relative flex flex-col items-start gap-15">
             <div className="absolute right-0 top-0 flex items-center gap-16">
               <ArticleTrashButton
-                userId={user?.id ?? null}
+                userId={"user_2QjfdQKc2aZmyyV7wwtPWKl5t5e"}
                 handleOnClick={handleOnClickTrashButton}
               ></ArticleTrashButton>
             </div>

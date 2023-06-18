@@ -1,9 +1,9 @@
+import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
+import Image from "next/image";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
-import Image from "next/image";
-import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 import { IoSettingsOutline } from "react-icons/io5";
-import { LogoutButtonComponent } from "@/app/_components/auth/logout";
+// import { LogoutButtonComponent } from "@/app/_components/auth/logout";
 
 export function MenuModalContainer({
   isOpen,
@@ -52,9 +52,7 @@ export function MenuModalContainer({
                 <span>アカウント管理</span>
               </Link>
             </li>
-            <li>
-              <LogoutButtonComponent></LogoutButtonComponent>
-            </li>
+            <li>{/* <LogoutButtonComponent></LogoutButtonComponent> */}</li>
           </ul>
         </div>
       </div>
