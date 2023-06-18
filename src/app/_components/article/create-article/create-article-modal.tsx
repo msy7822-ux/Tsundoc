@@ -44,6 +44,7 @@ export function CreateArticleModal({
       await registerArticles(siteUrl, user?.id ?? "");
 
       router.refresh();
+      scrollTo({ top: 0, behavior: "smooth" });
       setError(null);
     } catch (error) {
       setError("エラーが発生しました");
@@ -78,40 +79,42 @@ export function CreateArticleModal({
   };
 
   return (
-    <Modal>
-      <ModalInner>
-        <ClientModalCloseButton close={close}></ClientModalCloseButton>
-        <div className="mt-40 mb-20 flex w-full flex-col gap-20">
-          <div className="flex w-full items-center">
-            <textarea
-              value={siteUrl}
-              onChange={handleOnChangeSiteUrl}
-              className="
+    <>
+      <Modal>
+        <ModalInner>
+          <ClientModalCloseButton close={close}></ClientModalCloseButton>
+          <div className="mt-40 mb-20 flex w-full flex-col gap-20">
+            <div className="flex w-full items-center">
+              <textarea
+                value={siteUrl}
+                onChange={handleOnChangeSiteUrl}
+                className="
                 relative h-50 w-full resize-none
                 rounded-md border px-2 py-3
                 text-xs sm:text-sm
                 "
-              ref={inputRef}
-            ></textarea>
-            <ResetButton
-              handleOnClick={handleOnResetTextarea}
-              isDisabled={!user}
-            ></ResetButton>
-          </div>
+                ref={inputRef}
+              ></textarea>
+              <ResetButton
+                handleOnClick={handleOnResetTextarea}
+                isDisabled={!user}
+              ></ResetButton>
+            </div>
 
-          <div className="flex w-full items-center justify-center gap-10">
-            <PasteButton
-              handleOnClick={handleOnClickToPaste}
-              isDisabled={!user}
-            ></PasteButton>
+            <div className="flex w-full items-center justify-center gap-10">
+              <PasteButton
+                handleOnClick={handleOnClickToPaste}
+                isDisabled={!user}
+              ></PasteButton>
 
-            <RegisterButton
-              handleOnClick={handleSubmit}
-              isDisabled={!user}
-            ></RegisterButton>
+              <RegisterButton
+                handleOnClick={handleSubmit}
+                isDisabled={!user}
+              ></RegisterButton>
+            </div>
           </div>
-        </div>
-      </ModalInner>
-    </Modal>
+        </ModalInner>
+      </Modal>
+    </>
   );
 }
