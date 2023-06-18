@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { TopArticles } from "./_components/template/top-articles";
 
 export const metadata = {
   title: "TusnDoc",
@@ -11,9 +10,10 @@ export const revalidate = 60;
 export default async function Home() {
   return (
     <main className="relative">
+      <>sss</>
       <Suspense fallback={<>Loading...</>}>
         {/* @ts-expect-error Server Component */}
-        <TopArticles></TopArticles>
+        {/* <TopArticles></TopArticles> */}
       </Suspense>
     </main>
   );
