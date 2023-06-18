@@ -81,7 +81,7 @@ export function CreateArticleModal({
     <Modal>
       <ModalInner>
         <ClientModalCloseButton close={close}></ClientModalCloseButton>
-        <div className="mt-35 mb-20 flex w-full flex-col gap-20">
+        <div className="mt-40 mb-20 flex w-full flex-col gap-20">
           <div className="flex w-full items-center">
             <textarea
               value={siteUrl}

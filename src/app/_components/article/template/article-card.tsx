@@ -27,6 +27,7 @@ const cardWrapperStyle = tv({
 
 export function ArticleCard({ article, user }: Props) {
   const router = useRouter();
+
   const handleOnClick = async () => {
     await updateAccessCount(article.id);
     router.refresh();

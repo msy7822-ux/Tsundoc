@@ -1,7 +1,7 @@
 "use client";
 
 import { User } from "@clerk/nextjs/dist/types/server";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ErrorBlock } from "../../common/error-block";
 import { OpenCreateArticleButton } from "./buttons/open-create-article-button";
 import { CreateArticleModal } from "./create-article-modal";
@@ -15,6 +15,15 @@ export function CreateArticle({ isDisplay, user }: Props) {
   const [siteUrl, setSiteUrl] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [isDisplayModal, setIsDisplayModal] = useState<boolean>(false);
+
+  // Modal open時にスクロールを禁止する
+  useEffect(() => {
+    if (isDisplayModal) document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isDisplayModal]);
 
   if (!isDisplay) return null;
 
