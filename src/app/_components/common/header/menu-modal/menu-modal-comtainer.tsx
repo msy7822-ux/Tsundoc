@@ -1,4 +1,3 @@
-import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
@@ -11,7 +10,7 @@ export function MenuModalContainer({
   close,
 }: {
   isOpen: boolean;
-  user: User;
+  user: any;
   close: () => void;
 }) {
   if (!isOpen) return null;

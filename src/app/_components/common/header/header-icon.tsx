@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { MenuModalContainer } from "./menu-modal/menu-modal-comtainer";
-import { User } from "@clerk/nextjs/dist/types/server/clerkClient";
 
-export function HeaderIcon({ user }: { user: User }) {
+export function HeaderIcon({ user }: { user: any }) {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const borderStyle = isOpenMenu ? "border-main/50" : "border-white";
 

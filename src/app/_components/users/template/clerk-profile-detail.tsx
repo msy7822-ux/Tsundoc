@@ -1,6 +1,5 @@
 "use client";
 
-import { UserProfile } from "@clerk/nextjs";
 import { useLayoutEffect, useState } from "react";
 // import { LogoutButtonComponent } from "../../auth/logout";
 
@@ -31,15 +30,6 @@ export function ClerkProfileDetail({ profile }: Props) {
   return (
     <div>
       <div className="flex w-full flex-col items-center">
-        <UserProfile
-          appearance={{
-            variables: {
-              colorPrimary: "gray",
-              colorText: "#312e2e",
-            },
-          }}
-        />
-
         <div className="flex w-full max-w-[808px] flex-col gap-8">
           <div>
             <h1 className="text-[1.5rem] font-bold tracking-wide text-[#4157D0]">
@@ -63,7 +53,7 @@ export function ClerkProfileDetail({ profile }: Props) {
           </div>
         </div>
 
-        <div>{/* <LogoutButtonComponent /> */}</div>
+        <div></div>
       </div>
     </div>
   );

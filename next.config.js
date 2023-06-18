@@ -48,12 +48,7 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: [
-      "images.clerk.dev",
-      "res.cloudinary.com",
-      "qiita-user-contents.imgix.net",
-      "*",
-    ],
+    domains: ["res.cloudinary.com", "qiita-user-contents.imgix.net", "*"],
   },
   ...withPWA({}),
   ...sentryConfig,
