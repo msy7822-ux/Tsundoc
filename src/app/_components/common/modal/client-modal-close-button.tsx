@@ -13,7 +13,7 @@ export function ClientModalCloseButton({ close }: { close: () => void }) {
         close();
       }}
     >
-      <IoMdClose></IoMdClose>
+      <IoMdClose size={16}></IoMdClose>
     </button>
   );
 }
