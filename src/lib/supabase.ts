@@ -36,12 +36,13 @@ export const uploadToStorage = async (
 
 // cacheメソッドでラップすることで、キャッシュを有効にする
 export const getArticles = cache(async (userId: string) => {
+  // 初回レンダリングは、最初の三件のレコードのみを取得する
   const { data, error } = await supabase
     .from("articles")
     .select()
     .eq("register_id", userId)
     .order("created_at", { ascending: false })
-    .limit(3);
+    .limit(5);
 
   const articles = data as ArticleType[];
   if (error) throw new Error(error.message);

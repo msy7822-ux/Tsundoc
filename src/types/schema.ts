@@ -40,6 +40,7 @@ export interface Database {
           created_at: string | null
           domain: string
           id: string
+          index: number
           is_completed: boolean
           register_id: string
           storage_url: string | null
@@ -52,6 +53,7 @@ export interface Database {
           created_at?: string | null
           domain: string
           id: string
+          index?: number
           is_completed?: boolean
           register_id: string
           storage_url?: string | null
@@ -64,6 +66,7 @@ export interface Database {
           created_at?: string | null
           domain?: string
           id?: string
+          index?: number
           is_completed?: boolean
           register_id?: string
           storage_url?: string | null

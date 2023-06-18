@@ -12,8 +12,12 @@ export const metadata = {
 export const revalidate = 60;
 
 export default async function Home() {
+  const now = Date.now();
   const user: User | null = await getCurrentUser();
+  console.log("getCurrentUser calced time", Date.now() - now);
+
   const userArticles = await getArticles(user?.id ?? "");
+  console.log("getArticles calced time", Date.now() - now);
 
   return (
     <main className="relative">
