@@ -54,7 +54,8 @@ export const getArticles = cache(async (userId: string) => {
     .from("documents")
     .select()
     .eq("register_id", userId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(3);
 
   if (error) throw new Error(error.message);
 
