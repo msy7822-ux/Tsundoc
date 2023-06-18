@@ -34,28 +34,44 @@ export interface Database {
   }
   public: {
     Tables: {
-      documents: {
+      articles: {
         Row: {
+          access_count: number
           created_at: string | null
+          domain: string
           id: string
+          is_completed: boolean
           register_id: string
+          storage_url: string | null
           thumbnail: string | null
+          title: string
           url: string
         }
         Insert: {
+          access_count?: number
           created_at?: string | null
+          domain: string
           id: string
+          is_completed?: boolean
           register_id: string
+          storage_url?: string | null
           thumbnail?: string | null
+          title: string
           url: string
         }
         Update: {
+          access_count?: number
           created_at?: string | null
+          domain?: string
           id?: string
+          is_completed?: boolean
           register_id?: string
+          storage_url?: string | null
           thumbnail?: string | null
+          title?: string
           url?: string
         }
+        Relationships: []
       }
     }
     Views: {
@@ -110,6 +126,14 @@ export interface Database {
           public?: boolean | null
           updated_at?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "buckets_owner_fkey"
+            columns: ["owner"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       migrations: {
         Row: {
@@ -130,6 +154,7 @@ export interface Database {
           id?: number
           name?: string
         }
+        Relationships: []
       }
       objects: {
         Row: {
@@ -168,6 +193,20 @@ export interface Database {
           updated_at?: string | null
           version?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "objects_bucketId_fkey"
+            columns: ["bucket_id"]
+            referencedRelation: "buckets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "objects_owner_fkey"
+            columns: ["owner"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

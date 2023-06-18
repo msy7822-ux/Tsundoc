@@ -35,7 +35,7 @@ export function ArticleCard({ article, user }: Props) {
 
   return (
     <div className="relative">
-      <div className={cardWrapperStyle({ accessed: article.accessCount > 0 })}>
+      <div className={cardWrapperStyle({ accessed: article.access_count > 0 })}>
         <div className="relative flex flex-col items-start gap-15">
           <div className="absolute right-0 top-0 flex items-center gap-16">
             <ArticleTrashButton
@@ -52,7 +52,7 @@ export function ArticleCard({ article, user }: Props) {
             onClick={handleOnClick}
           >
             <ArticleTitle title={article.title}></ArticleTitle>
-            <Thumbnail imageUrl={article.thumbnail}></Thumbnail>
+            <Thumbnail imageUrl={article.storage_url}></Thumbnail>
           </Link>
         </div>
       </div>

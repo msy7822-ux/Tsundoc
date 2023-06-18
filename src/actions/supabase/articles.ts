@@ -9,20 +9,24 @@ export async function registerArticles(siteUrl: string, userId: string) {
   const title = await fetchTitleInfo(siteUrl);
   const ogImageUrl = await fetchOgpImage(siteUrl);
   const blob = await fetchFileObject(ogImageUrl ?? "");
-
-  const uuid = uuidv4();
-  await uploadToStorage(blob, userId, uuid);
-
-  const domain = new URL(siteUrl).hostname;
   const supabase = generateSupabaseClient();
 
-  const { data, error } = await supabase.from("documents").insert({
+  const uuid = uuidv4();
+  const res = await uploadToStorage(blob, userId, uuid);
+  const path = res ? res.path : "";
+  const domain = new URL(siteUrl).hostname;
+
+  const { data: image } = supabase.storage.from("og-images").getPublicUrl(path);
+  const imageUrl = image.publicUrl;
+
+  const { data, error } = await supabase.from("articles").insert({
     id: uuid,
     thumbnail: ogImageUrl,
     register_id: userId,
     url: siteUrl,
     title: title,
     domain: domain,
+    storage_url: imageUrl,
   });
 
   if (error) throw console.error(error);
@@ -33,7 +37,7 @@ export async function registerArticles(siteUrl: string, userId: string) {
 export const updateAccessCount = async (articleId: string) => {
   const supabase = generateSupabaseClient();
   const { data, error } = await supabase
-    .from("documents")
+    .from("articles")
     .update({ access_count: 1 })
     .eq("id", articleId);
 
@@ -44,10 +48,7 @@ export const updateAccessCount = async (articleId: string) => {
 
 export async function deleteArticles(id: string) {
   const supabase = generateSupabaseClient();
-  const { data, error } = await supabase
-    .from("documents")
-    .delete()
-    .eq("id", id);
+  const { data, error } = await supabase.from("articles").delete().eq("id", id);
 
   if (error) throw console.error(error);
 
