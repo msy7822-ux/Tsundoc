@@ -19,8 +19,9 @@ export function PasteButton({ isDisabled, handleOnClick }: Props) {
       onClick={handleOnClick}
       disabled={isDisabled}
     >
-      <span className="inline-block">
+      <span className="flex items-center gap-5">
         <BiPaste size={16}></BiPaste>
+        <span className="text-xs">ペースト</span>
       </span>
     </button>
   );

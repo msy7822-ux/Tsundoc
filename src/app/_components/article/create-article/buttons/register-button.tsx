@@ -19,8 +19,9 @@ export function RegisterButton({ handleOnClick, isDisabled }: Props) {
       onClick={handleOnClick}
       disabled={isDisabled}
     >
-      <span className="inline-block">
+      <span className="flex items-center gap-5">
         <AiOutlineAppstoreAdd></AiOutlineAppstoreAdd>
+        <span className="text-xs">登録</span>
       </span>
     </button>
   );
