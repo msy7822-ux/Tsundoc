@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ErrorBlock } from "../../common/error-block";
+import { ErrorBlock } from "../../../common/error-block";
 import { OpenCreateArticleButton } from "./buttons/open-create-article-button";
 import { CreateArticleModal } from "./create-article-modal";
 

@@ -44,7 +44,6 @@ export const getArticles = cache(async (userId: string) => {
 
   const articles = data as ArticleType[];
 
-  console.log(articles);
   if (error || !data) throw new Error(error?.message ?? "エラーが発生しました");
 
   return articles;

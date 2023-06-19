@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { SignupComponent } from "./_components/features/auth/signup";
 import { TopArticles } from "./_components/template/top-articles";
 
 export const metadata = {
@@ -11,7 +12,7 @@ export const revalidate = 60;
 export default async function Home() {
   return (
     <main className="relative">
-      <>sss</>
+      <SignupComponent></SignupComponent>
       <Suspense fallback={<>Loading...</>}>
         {/* @ts-expect-error Server Component */}
         <TopArticles></TopArticles>

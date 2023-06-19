@@ -3,9 +3,9 @@
 import { registerArticles } from "@/actions/supabase/articles";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
-import { ClientModalCloseButton } from "../../common/modal/client-modal-close-button";
-import { Modal } from "../../common/modal/modal";
-import { ModalInner } from "../../common/modal/modal-inner";
+import { ClientModalCloseButton } from "../../../common/modal/client-modal-close-button";
+import { Modal } from "../../../common/modal/modal";
+import { ModalInner } from "../../../common/modal/modal-inner";
 import { PasteButton } from "./buttons/paste-button";
 import { RegisterButton } from "./buttons/register-button";
 import { ResetButton } from "./buttons/reset-button";
