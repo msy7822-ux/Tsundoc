@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
 
 const spacingObj = Object.fromEntries(
   [...Array(1201)].map((_, i) => i).map((num) => [num, `${num}px`])
@@ -35,4 +35,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+} satisfies Config;
