@@ -15,7 +15,7 @@ export function SignupComponent() {
       });
       // console.log("on click");
       // const data = await signup();
-      // router.replace(data.url);
+      router.refresh();
       console.log(data);
     } catch (error) {
       console.error(error);
