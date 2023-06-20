@@ -1,11 +1,25 @@
 "use client";
 
-import { signup } from "@/actions/supabase/auth";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 
+// const supabase = generateSupabaseClient();
 export function SignupComponent() {
-  // const { signInWithGithub, error } = useAuth();
+  const router = useRouter();
+  const supabase = createClientComponentClient();
+
   const handleOnClick = async () => {
-    await signup();
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "github",
+      });
+      // console.log("on click");
+      // const data = await signup();
+      // router.replace(data.url);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

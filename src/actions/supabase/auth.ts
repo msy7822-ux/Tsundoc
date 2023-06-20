@@ -10,5 +10,7 @@ export const signup = async () => {
     provider: "github",
   });
 
-  console.log("data", data);
+  if (error) throw new Error(error.message);
+
+  return data;
 };
