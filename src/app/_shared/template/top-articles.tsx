@@ -13,10 +13,12 @@ export async function TopArticles() {
   // for perfomance calclate
   const now = Date.now();
 
+  console.log("session", session);
   if (!session?.user) return <></>;
 
   const userArticles = await getArticles(session.user.id);
 
+  console.log("userArticles", userArticles);
   console.log("getArticles calcurated time", Date.now() - now);
   return (
     <>
