@@ -4,6 +4,10 @@ const spacingObj = Object.fromEntries(
   [...Array(1201)].map((_, i) => i).map((num) => [num, `${num}px`])
 );
 
+const zIndexValues = Object.fromEntries(
+  [...Array(11)].map((_, i) => i * 10).map((num) => [num, `${num}`])
+);
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -31,6 +35,12 @@ export default {
       },
       borderRadius: {
         "4xl": "2rem",
+      },
+      zIndex: {
+        ...zIndexValues,
+      },
+      height: {
+        "screen-without-header": "calc(100vh - 110px)",
       },
     },
   },

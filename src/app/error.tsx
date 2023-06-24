@@ -9,7 +9,7 @@ export default function GlobalError({
 }) {
   return (
     <html>
-      <body>
+      <body className="relative">
         <h2>不具合が発生しました。</h2>
         <button
           onClick={() => window.location.reload()}
