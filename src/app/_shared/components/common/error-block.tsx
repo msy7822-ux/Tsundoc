@@ -12,7 +12,7 @@ export function ErrorBlock({ message, isDisplay, close }: Props) {
   return (
     <div
       className="
-        fixed left-0 top-30 z-50
+        fixed left-0 top-30 z-80
         block w-full
       "
     >
