@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "fix:lint": "next lint --fix",
+    "supabase:init": "npx supabase init",
     "gen:type": "npx supabase gen types typescript --linked > src/types/schema.ts"
   },
   "dependencies": {

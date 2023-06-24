@@ -47,4 +47,5 @@ next-env.d.ts
 
 # supabase
 /supabase/
+./src/types/schema.ts
 
