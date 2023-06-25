@@ -44,8 +44,3 @@ next-env.d.ts
 
 # Sentry Auth Token
 .sentryclirc
-
-# supabase
-/supabase/
-/src/types/schema.ts
-
