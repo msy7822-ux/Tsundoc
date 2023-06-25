@@ -11,7 +11,8 @@ export function GoogleLoginComponent() {
   const handleOnClick = async () => {
     try {
       const data = await login("google");
-      console.log(data);
+      console.log("clicked ", data);
+
       router.refresh();
     } catch (error) {
       console.error(error);

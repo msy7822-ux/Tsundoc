@@ -10,8 +10,8 @@ export function GitHubLoginComponent() {
 
   const handleOnClick = async () => {
     try {
-      const res = await login("github");
-      console.log(res);
+      const data = await login("github");
+      console.log("clicked ", data);
 
       router.refresh();
     } catch (error) {
