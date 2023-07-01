@@ -13,7 +13,8 @@ export const login = async (provider: "github" | "google") => {
 
   if (error) throw new Error(error.message);
 
-  window.open(data.url, undefined, "popup=false");
+  // window.open(data.url, undefined, "popup=false");
+  location.href = data.url;
 
   return data;
 };
