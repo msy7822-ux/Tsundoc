@@ -1,3 +1,4 @@
+import NextAuthProvider from "@/providers/next-auth";
 import { Header } from "./_shared/components/common/header/header";
 import "./globals.css";
 
@@ -48,17 +49,19 @@ export default async function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="relative">
-        <div className="fixed left-0 top-0 z-80 h-82 w-full">
-          <Header></Header>
-        </div>
-        <div
-          className="
-            mx-auto my-85 w-full max-w-5xl
-            p-12 sm:my-95 lg:p-0
+        <NextAuthProvider>
+          <div className="fixed left-0 top-0 z-80 h-82 w-full">
+            <Header></Header>
+          </div>
+          <div
+            className="
+          mx-auto my-85 w-full max-w-5xl
+          p-12 sm:my-95 lg:p-0
           "
-        >
-          {children}
-        </div>
+          >
+            {children}
+          </div>
+        </NextAuthProvider>
       </body>
     </html>
   );
